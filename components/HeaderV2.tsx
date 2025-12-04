@@ -12,50 +12,55 @@ const NAV_ITEMS = [
 
 export default function HeaderV2() {
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-zinc-200">
-      <div className="container-v2 py-4 grid grid-cols-[auto_1fr_auto] items-center">
-        {/* Logo texto en Switzer fina */}
-        <Link href="#" className="justify-self-start inline-flex items-baseline gap-2">
+    <header className="sticky top-0 z-40 bg-white border-b border-zinc-100">
+      {/* Usamos flex estándar (sin justify-between) para que los elementos fluyan desde la izquierda */}
+      <div className="container-v2 h-20 flex items-center">
+
+        {/* IZQUIERDA: Logo */}
+        {/* Añadimos mr-10 para dar espacio entre logo y menú */}
+        <Link href="#" className="inline-flex items-center gap-2 mr-10">
           <span
-            className="text-2xl tracking-tight text-zinc-900 font-light leading-none"
+            className="text-2xl tracking-tight text-zinc-900 font-medium leading-none"
             style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
           >
             2laps
           </span>
         </Link>
 
-        {/* Nav centrado */}
-        <nav className="hidden md:flex justify-center gap-8 text-sm text-zinc-900">
+        {/* CENTRO -> AHORA IZQUIERDA: Nav (Pegado al logo) */}
+        <nav className="hidden lg:flex items-center gap-8 text-[15px] font-medium text-zinc-600">
           {NAV_ITEMS.map((item) => (
-            <a key={item.href} href={item.href} className="hover:text-black">
+            <a key={item.href} href={item.href} className="hover:text-zinc-900 transition-colors">
               {item.label}
             </a>
           ))}
         </nav>
 
-        {/* Acciones derecha */}
-        <div className="justify-self-end flex items-center gap-4">
+        {/* DERECHA: Acciones */}
+        {/* ml-auto empuja este bloque totalmente a la derecha */}
+        <div className="ml-auto flex items-center gap-4 md:gap-6">
           <button
             type="button"
-            className="hidden sm:inline-flex h-9 w-9 items-center justify-center rounded-full ring-1 ring-black/10 text-zinc-700 hover:bg-zinc-100"
+            className="text-zinc-500 hover:text-zinc-900"
             aria-label="Buscar"
           >
             <MagnifyingGlassIcon className="h-5 w-5" />
           </button>
-          <a href="#login" className="text-sm text-zinc-800 hover:text-black hidden sm:inline">
-            Log in
-          </a>
-          <a
-            href="#get-started"
-            className="inline-flex items-center gap-2 rounded-full bg-[#C23342] px-4 py-2 text-sm font-medium text-white shadow hover:bg-[#A12B39]"
-          >
-            Get started for free
-            <span aria-hidden>→</span>
-          </a>
+
+          <div className="hidden md:flex items-center gap-4">
+            <a href="#login" className="text-[15px] font-medium text-zinc-600 hover:text-zinc-900">
+              Log In
+            </a>
+            <a
+              href="#get-started"
+              // CAMBIO: Color #Bc4a52
+              className="inline-flex items-center justify-center rounded-full bg-[#Bc4a52] px-5 py-2.5 text-[15px] font-semibold text-white transition-transform active:scale-95 hover:bg-[#a63f46]"
+            >
+              Get Started for Free
+            </a>
+          </div>
         </div>
       </div>
     </header>
   );
 }
-
-

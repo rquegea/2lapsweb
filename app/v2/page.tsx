@@ -34,9 +34,8 @@ export default function V2() {
     <div className="min-h-screen bg-white font-sans">
       {showSplash && (
         <div
-          className={`fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-400 ${
-            hideSplash ? "opacity-0" : "opacity-100"
-          }`}
+          className={`fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-400 ${hideSplash ? "opacity-0" : "opacity-100"
+            }`}
         >
           <div
             className="text-2xl md:text-4xl text-zinc-900 font-medium"
@@ -45,10 +44,10 @@ export default function V2() {
             <span>Understand</span> the{" "}
             <span className="relative inline-block">
               <span>market</span>
+              {/* CAMBIO: Color del subrayado actualizado */}
               <span
-                className={`absolute left-0 -bottom-1 h-[3px] bg-[#C23342] transition-all duration-300 ${
-                  revealUnderline ? "w-full" : "w-0"
-                }`}
+                className={`absolute left-0 -bottom-1 h-[3px] bg-[#Bc4a52] transition-all duration-300 ${revealUnderline ? "w-full" : "w-0"
+                  }`}
                 aria-hidden="true"
               />
             </span>{" "}
@@ -71,5 +70,3 @@ export default function V2() {
     </div>
   );
 }
-
-

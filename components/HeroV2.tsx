@@ -10,7 +10,8 @@ export default function HeroV2() {
           style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
         >
           <span className="block">Make every decision with</span>
-          <span className="block text-[#C23342]">the market’s latest intelligence</span>
+          {/* CAMBIO: Texto en rojo actualizado */}
+          <span className="block text-[#Bc4a52]">the market’s latest intelligence</span>
         </h1>
       </div>
 
@@ -18,7 +19,8 @@ export default function HeroV2() {
       <div className="w-full">
         <div className="grid grid-cols-1 md:grid-cols-[6fr_6fr] min-h-[600px] md:min-h-[760px]">
           {/* Columna izquierda (copy + CTA) full-bleed rojo */}
-          <div className="bg-[#C23342] text-white">
+          {/* CAMBIO: Fondo rojo actualizado */}
+          <div className="bg-[#Bc4a52] text-white">
             <div className="align-left-v2 pt-12 md:pt-16 pb-10 pr-6 md:pr-8 h-full flex items-start">
               <div className="max-w-2xl">
                 <p className="text-base/7 md:text-lg/8 opacity-95">
@@ -28,7 +30,8 @@ export default function HeroV2() {
                 <div className="mt-6 flex items-center gap-4">
                   <a
                     href="#get-started"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#C23342] shadow hover:bg-zinc-50"
+                    // CAMBIO: Texto del botón actualizado al nuevo rojo
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#Bc4a52] shadow hover:bg-zinc-50"
                   >
                     Get started for free <span aria-hidden>→</span>
                   </a>
@@ -55,5 +58,3 @@ export default function HeroV2() {
     </section>
   );
 }
-
-

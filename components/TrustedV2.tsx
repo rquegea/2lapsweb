@@ -1,5 +1,15 @@
 "use client";
 
+const BRANDS = [
+  "Moët & Chandon",
+  "Ruinart",
+  "Veuve Clicquot",
+  "Dom Pérignon",
+  "VIU",
+  "The Core School",
+  "EAE Business School",
+];
+
 export default function TrustedV2() {
   return (
     <section className="bg-white">
@@ -8,21 +18,18 @@ export default function TrustedV2() {
           className="text-3xl md:text-5xl font-medium tracking-tight text-zinc-900"
           style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
         >
-          Trusted by 6,000+ of the world’s largest enterprises
+          The choice of top companies
         </h2>
-        <div className="mt-12 grid grid-cols-2 gap-y-8 gap-x-6 sm:grid-cols-3 md:grid-cols-6 place-items-center text-zinc-500">
-          <span className="text-lg md:text-xl">Pfizer</span>
-          <span className="text-lg md:text-xl">Microsoft</span>
-          <span className="text-lg md:text-xl">J.P.Morgan</span>
-          <span className="text-lg md:text-xl">PG&amp;E</span>
-          <span className="text-lg md:text-xl">Gladstone</span>
-          <span className="text-lg md:text-xl">Verano</span>
+
+        {/* Usamos Flexbox para centrar visualmente los 7 elementos */}
+        <div className="mt-12 flex flex-wrap justify-center items-center gap-x-8 md:gap-x-16 gap-y-8 text-zinc-500">
+          {BRANDS.map((brand) => (
+            <span key={brand} className="text-lg md:text-xl font-medium whitespace-nowrap">
+              {brand}
+            </span>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
-
-
-
