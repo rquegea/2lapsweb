@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { makeLocalFavicon } from "../lib/localFavicon";
 
 const LLM_LOGOS = [
     { src: "/icons/claude-logo.png", alt: "Claude" },
@@ -122,7 +123,7 @@ const SOURCE_DOMAINS: string[] = [
 const SOURCES = SOURCE_DOMAINS.slice(0, 100).map((domain, i) => ({
     id: `src-${i}-${domain}`,
     domain,
-    favicon: `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=64`,
+    favicon: makeLocalFavicon(domain, 64),
 }));
 
 export default function DataOriginsHero() {

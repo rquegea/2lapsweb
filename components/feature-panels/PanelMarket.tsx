@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { makeLocalFavicon } from "../../lib/localFavicon";
 
 export default function PanelMarket() {
     const tabs = ["Sector", "Region", "Coverage"];
@@ -34,7 +35,7 @@ export default function PanelMarket() {
         { id: "t12", value: 13 },
     ];
 
-    const getFavicon = (domain: string) => `https://www.google.com/s2/favicons?domain=${domain}&sz=32`;
+    const getFavicon = (domain: string) => makeLocalFavicon(domain, 48);
 
     return (
         <motion.div
