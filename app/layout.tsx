@@ -5,9 +5,9 @@ import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
   title:
-    "2laps by T&T — Inteligencia del Mercado Conversacional",
+    "2laps — Conversational Market Intelligence",
   description:
-    "Plataforma AI multi‑agente para análisis de mercado, inteligencia competitiva y reportes consultivos listos para acción.",
+    "Multi‑agent AI platform for market analysis, competitive intelligence, and action‑ready advisory reports.",
   icons: {
     icon: [
       { url: "/icons/@2laps-logo.png?v=3", type: "image/png", sizes: "16x16" },
@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="en">
       <head>
         <link
           rel="stylesheet"

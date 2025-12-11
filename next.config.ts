@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  turbopack: {
-    root: __dirname,
-  },
+//   turbopack: {
+//     root: __dirname,
+//   },
   // Exportación estática para hosting sin servidor (p.ej., GSuite / Sites)
   output: "export",
   // Útil en hosting estático para resolver directorios a index.html

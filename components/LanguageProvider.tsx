@@ -209,17 +209,17 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
 };
 
 export function LanguageProvider({ children }: Readonly<{ children: React.ReactNode }>) {
-  const [language, setLanguageState] = useState<SupportedLanguage>("es");
+  const [language, setLanguageState] = useState<SupportedLanguage>("en");
 
   useEffect(() => {
     if (typeof globalThis.window !== "undefined") {
       const stored = globalThis.localStorage.getItem("lang") as SupportedLanguage | null;
       if (stored === "es" || stored === "en") {
         setLanguageState(stored);
-        return;
+      } else {
+        // Default to English if no preference is stored
+        setLanguageState("en");
       }
-      const browserLang = globalThis.navigator.language?.toLowerCase().startsWith("es") ? "es" : "en";
-      setLanguageState(browserLang);
     }
   }, []);
 

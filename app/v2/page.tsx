@@ -2,9 +2,12 @@
 import HeaderV2 from "@/components/HeaderV2";
 import HeroV2 from "@/components/HeroV2";
 import TrustedV2 from "@/components/TrustedV2";
+import FeatureScroll from "@/components/FeatureScroll";
 import SolutionsV2 from "@/components/SolutionsV2";
 import SourcesV2 from "@/components/SourcesV2";
-import Footer from "@/components/Footer";
+import NewReleaseV2 from "@/components/NewReleaseV2";
+import CtaSectionV2 from "@/components/CtaSectionV2";
+import FooterV2 from "@/components/FooterV2";
 import { useEffect, useState } from "react";
 
 export default function V2() {
@@ -31,7 +34,7 @@ export default function V2() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className={`min-h-screen bg-white font-sans ${showSplash ? "h-screen overflow-hidden" : ""}`}>
       {showSplash && (
         <div
           className={`fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-400 ${hideSplash ? "opacity-0" : "opacity-100"
@@ -44,9 +47,9 @@ export default function V2() {
             <span>Understand</span> the{" "}
             <span className="relative inline-block">
               <span>market</span>
-              {/* CAMBIO: Color del subrayado actualizado */}
+              {/* CAMBIO: Uso de bg-primary global */}
               <span
-                className={`absolute left-0 -bottom-1 h-[3px] bg-[#Bc4a52] transition-all duration-300 ${revealUnderline ? "w-full" : "w-0"
+                className={`absolute left-0 -bottom-1 h-[3px] bg-primary transition-all duration-300 ${revealUnderline ? "w-full" : "w-0"
                   }`}
                 aria-hidden="true"
               />
@@ -55,18 +58,17 @@ export default function V2() {
           </div>
         </div>
       )}
-      {!showSplash && <HeaderV2 />}
-      <main className="py-16">
-        {!showSplash && (
-          <>
-            <HeroV2 />
-            <TrustedV2 />
-            <SolutionsV2 />
-            <SourcesV2 />
-          </>
-        )}
+      <HeaderV2 />
+      <main>
+        <HeroV2 />
+        <TrustedV2 />
+        <SolutionsV2 />
+        <SourcesV2 />
+        <FeatureScroll />
+        <NewReleaseV2 />
+        <CtaSectionV2 />
       </main>
-      <Footer />
+      <FooterV2 />
     </div>
   );
 }

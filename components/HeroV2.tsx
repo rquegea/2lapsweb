@@ -1,4 +1,5 @@
 "use client";
+import AIResearchSidebar from "@/components/AIResearchSidebar";
 
 export default function HeroV2() {
   return (
@@ -10,8 +11,8 @@ export default function HeroV2() {
           style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
         >
           <span className="block">Make every decision with</span>
-          {/* CAMBIO: Texto en rojo actualizado */}
-          <span className="block text-[#Bc4a52]">the market’s latest intelligence</span>
+          {/* CAMBIO: Uso de text-primary global */}
+          <span className="block text-primary">the market’s latest intelligence</span>
         </h1>
       </div>
 
@@ -19,8 +20,8 @@ export default function HeroV2() {
       <div className="w-full">
         <div className="grid grid-cols-1 md:grid-cols-[6fr_6fr] min-h-[600px] md:min-h-[760px]">
           {/* Columna izquierda (copy + CTA) full-bleed rojo */}
-          {/* CAMBIO: Fondo rojo actualizado */}
-          <div className="bg-[#Bc4a52] text-white">
+          {/* CAMBIO: Uso de bg-primary global */}
+          <div className="bg-primary text-white">
             <div className="align-left-v2 pt-12 md:pt-16 pb-10 pr-6 md:pr-8 h-full flex items-start">
               <div className="max-w-2xl">
                 <p className="text-base/7 md:text-lg/8 opacity-95">
@@ -30,16 +31,10 @@ export default function HeroV2() {
                 <div className="mt-6 flex items-center gap-4">
                   <a
                     href="#get-started"
-                    // CAMBIO: Texto del botón actualizado al nuevo rojo
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-[#Bc4a52] shadow hover:bg-zinc-50"
+                    // CAMBIO: Uso de text-primary global
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-primary shadow hover:bg-zinc-50"
                   >
                     Get started for free <span aria-hidden>→</span>
-                  </a>
-                  <a
-                    href="#tour"
-                    className="inline-flex items-center gap-2 text-sm font-medium underline decoration-white/60 decoration-2 underline-offset-4 hover:opacity-90"
-                  >
-                    Take the tour
                   </a>
                 </div>
               </div>
@@ -47,9 +42,9 @@ export default function HeroV2() {
           </div>
           {/* Columna derecha (placeholder UI) full-bleed negro */}
           <div className="bg-[#0F172A]">
-            <div className="align-right-v2 py-10 md:py-12 pl-6 md:pl-8 h-full flex items-center">
-              <div className="h-72 md:h-[520px] rounded-xl bg-white/5 ring-1 ring-white/10 grid place-items-center text-white/70 w-full">
-                <span className="text-sm">UI preview</span>
+            <div className="py-10 md:py-12 h-full flex items-center justify-center px-6">
+              <div className="w-full max-w-[720px] flex justify-center">
+                <AIResearchSidebar />
               </div>
             </div>
           </div>

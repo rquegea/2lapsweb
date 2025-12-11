@@ -1,13 +1,17 @@
 "use client";
 
+// 1. Sube tus logos a la carpeta "public/logos/"
+// 2. Asegúrate de que los nombres de archivo coincidan aquí abajo:
 const BRANDS = [
-  "Moët & Chandon",
-  "Ruinart",
-  "Veuve Clicquot",
-  "Dom Pérignon",
-  "VIU",
-  "The Core School",
-  "EAE Business School",
+  { name: "Moët & Chandon", logo: "/logos/moet.png" },
+  { name: "Ruinart", logo: "/logos/ruinart.png" },
+  { name: "Veuve Clicquot", logo: "/logos/veuve-clicquot.png" },
+  { name: "Dom Pérignon", logo: "/logos/dom-perignon.svg" },
+  { name: "Planeta Formación y Universidades", logo: "/logos/planeta.png" },
+  { name: "VIU", logo: "/logos/viu.png" },
+  { name: "The Core School", logo: "/logos/the-core.png" },
+  { name: "EAE Business School", logo: "/logos/eae.png" },
+  { name: "Leifheit", logo: "/logos/leifheit.png" },
 ];
 
 export default function TrustedV2() {
@@ -21,12 +25,32 @@ export default function TrustedV2() {
           The choice of top companies
         </h2>
 
-        {/* Usamos Flexbox para centrar visualmente los 7 elementos */}
-        <div className="mt-12 flex flex-wrap justify-center items-center gap-x-8 md:gap-x-16 gap-y-8 text-zinc-500">
+        {/* Grid de logos */}
+        <div className="mt-16 flex flex-wrap justify-center items-center gap-x-12 md:gap-x-16 gap-y-10">
           {BRANDS.map((brand) => (
-            <span key={brand} className="text-lg md:text-xl font-medium whitespace-nowrap">
-              {brand}
-            </span>
+            <div key={brand.name} className="group relative flex items-center justify-center">
+              {/* Imagen del logo */}
+              <img
+                src={brand.logo}
+                alt={brand.name}
+                // Ajusta 'h-8' o 'h-10' para cambiar el tamaño general de los logos
+                className="h-8 md:h-10 w-auto max-w-[160px] object-contain opacity-60 grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                // Script simple para manejar si la imagen no existe
+                onError={(e) => {
+                  const img = e.currentTarget;
+                  img.style.display = "none"; // Ocultar imagen rota
+                  const span = img.parentElement?.querySelector(".fallback-text") as HTMLElement;
+                  if (span) span.style.display = "block"; // Mostrar texto fallback
+                }}
+              />
+              {/* Fallback de texto: Se muestra automáticamente si la imagen falla al cargar */}
+              <span
+                style={{ display: "none" }}
+                className="fallback-text text-lg md:text-xl font-medium text-zinc-400 whitespace-nowrap"
+              >
+                {brand.name}
+              </span>
+            </div>
           ))}
         </div>
       </div>
