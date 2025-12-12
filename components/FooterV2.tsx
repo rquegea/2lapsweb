@@ -2,49 +2,16 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "./LanguageProvider";
 
-const FOOTER_LINKS = [
-    {
-        title: "Platform",
-        links: [
-            { label: "The 2laps Platform", href: "/platform" },
-            { label: "Data Point Origins", href: "/data-point-origins" },
-            { label: "Enterprise Intelligence", href: "/platform/enterprise-intelligence" },
-        ]
-    },
-    {
-        title: "Solutions",
-        links: [
-            { label: "FMCG", href: "/solutions/fmcg" },
-            { label: "Education", href: "/solutions/education" },
-        ]
-    },
-    {
-        title: "Resources",
-        links: [
-            { label: "Blog", href: "/resources/blog" },
-            { label: "Case Studies", href: "/resources/case-studies" },
-            { label: "Webinars", href: "/resources/webinars" },
-        ]
-    },
-    {
-        title: "About",
-        links: [
-            { label: "Our Story", href: "/about/our-story" },
-            { label: "Careers", href: "/about/careers" },
-            { label: "Contact", href: "/about/contact" },
-        ]
-    }
-];
-
-function FooterColumn({ column, colIndex }: { column: typeof FOOTER_LINKS[0], colIndex: number }) {
-    // Default active is null (no line visible initially)
+function FooterColumn({ column, colIndex }: { column: { titleKey: string, links: { labelKey: string, href: string }[] }, colIndex: number }) {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const { t } = useLanguage();
 
     return (
         <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-6">
-                {column.title}
+                {t(column.titleKey)}
             </h4>
             <div className="relative border-l border-zinc-800 ml-1" onMouseLeave={() => setActiveIndex(null)}>
                 <ul className="space-y-4 pl-4">
@@ -52,7 +19,7 @@ function FooterColumn({ column, colIndex }: { column: typeof FOOTER_LINKS[0], co
                         const isActive = activeIndex === linkIndex;
                         return (
                             <li
-                                key={link.label}
+                                key={link.labelKey}
                                 className="relative"
                                 onMouseEnter={() => setActiveIndex(linkIndex)}
                             >
@@ -68,7 +35,7 @@ function FooterColumn({ column, colIndex }: { column: typeof FOOTER_LINKS[0], co
                                     className={`text-sm transition-colors block ${isActive ? "text-white font-medium" : "text-zinc-400 hover:text-white"
                                         }`}
                                 >
-                                    {link.label}
+                                    {t(link.labelKey)}
                                 </Link>
                             </li>
                         );
@@ -80,6 +47,42 @@ function FooterColumn({ column, colIndex }: { column: typeof FOOTER_LINKS[0], co
 }
 
 export default function FooterV2() {
+    const { t } = useLanguage();
+    
+    const FOOTER_LINKS = [
+        {
+            titleKey: "v2.footer.platform",
+            links: [
+                { labelKey: "v2.footer.platform.main", href: "/platform" },
+                { labelKey: "v2.footer.platform.origins", href: "/data-point-origins" },
+                { labelKey: "v2.footer.platform.enterprise", href: "/platform/enterprise-intelligence" },
+            ]
+        },
+        {
+            titleKey: "v2.footer.solutions",
+            links: [
+                { labelKey: "v2.footer.solutions.fmcg", href: "/solutions/fmcg" },
+                { labelKey: "v2.footer.solutions.education", href: "/solutions/education" },
+            ]
+        },
+        {
+            titleKey: "v2.footer.resources",
+            links: [
+                { labelKey: "v2.footer.resources.blog", href: "/resources/blog" },
+                { labelKey: "v2.footer.resources.caseStudies", href: "/resources/case-studies" },
+                { labelKey: "v2.footer.resources.webinars", href: "/resources/webinars" },
+            ]
+        },
+        {
+            titleKey: "v2.footer.about",
+            links: [
+                { labelKey: "v2.footer.about.story", href: "/about/our-story" },
+                { labelKey: "v2.footer.about.careers", href: "/about/careers" },
+                { labelKey: "v2.footer.about.contact", href: "/about/contact" },
+            ]
+        }
+    ];
+
     return (
         <footer className="bg-[#111111] text-white pt-12 md:pt-20 pb-10 relative overflow-hidden">
             <div className="container-v2 relative z-10">
@@ -88,7 +91,7 @@ export default function FooterV2() {
                     {/* Links Columns */}
                     <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
                         {FOOTER_LINKS.map((column, colIndex) => (
-                            <FooterColumn key={column.title} column={column} colIndex={colIndex} />
+                            <FooterColumn key={column.titleKey} column={column} colIndex={colIndex} />
                         ))}
                     </div>
 
@@ -98,7 +101,7 @@ export default function FooterV2() {
                             href="https://platform.2laps.io"
                             className="w-full text-center rounded-md bg-white text-zinc-900 px-6 py-3 text-sm font-semibold hover:bg-zinc-100 transition-colors"
                         >
-                            Log In
+                            {t("v2.footer.login")}
                         </Link>
 
                         <Link
@@ -134,12 +137,12 @@ export default function FooterV2() {
                     </div>
 
                     <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-xs text-zinc-500">
-                        <span>2laps Inc. 2025. All Rights Reserved</span>
+                        <span>{t("v2.footer.copyright")}</span>
                         <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                            <Link href="#" className="hover:text-zinc-300">Legal & Compliance</Link>
-                            <Link href="#" className="hover:text-zinc-300">Cookie Preferences</Link>
-                            <Link href="#" className="hover:text-zinc-300">Privacy Policy</Link>
-                            <Link href="#" className="hover:text-zinc-300">Terms & Conditions</Link>
+                            <Link href="#" className="hover:text-zinc-300">{t("v2.footer.legal")}</Link>
+                            <Link href="#" className="hover:text-zinc-300">{t("v2.footer.cookies")}</Link>
+                            <Link href="#" className="hover:text-zinc-300">{t("v2.footer.privacy")}</Link>
+                            <Link href="#" className="hover:text-zinc-300">{t("v2.footer.terms")}</Link>
                         </div>
                     </div>
                 </div>

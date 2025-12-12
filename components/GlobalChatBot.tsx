@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "./LanguageProvider";
 
 export default function GlobalChatBot() {
     const [isVisible, setIsVisible] = useState(false);
     const [isClosed, setIsClosed] = useState(false);
+    const { t } = useLanguage();
 
     useEffect(() => {
         // Mostrar el chatbot después de 3 segundos si no ha sido cerrado
@@ -67,25 +69,25 @@ export default function GlobalChatBot() {
                                 className="w-8 h-8 rounded-full flex-shrink-0 border border-zinc-100"
                             />
                             <div>
-                                <div className="font-semibold text-zinc-900 text-xs">Carlos</div>
-                                <div className="text-[10px] text-zinc-500">AI Representative</div>
+                                <div className="font-semibold text-zinc-900 text-xs">{t("chatbot.name")}</div>
+                                <div className="text-[10px] text-zinc-500">{t("chatbot.role")}</div>
                             </div>
                         </div>
                         <p className="text-xs text-zinc-700 mb-3 leading-relaxed">
-                            Welcome back! I'm Carlos, an AI Representative at 2Laps. Anything specific you're curious about regarding our platform today?
+                            {t("chatbot.welcomeMessage")}
                         </p>
                         <button
                             onClick={handleBookMeeting}
                             className="w-full bg-white border-2 border-primary text-primary font-semibold px-3 py-2 rounded-lg hover:bg-primary hover:text-white transition-all duration-200 text-xs"
                         >
-                            Book a Meeting
+                            {t("chatbot.bookMeeting")}
                         </button>
                         <p className="text-[9px] text-zinc-400 mt-2 leading-relaxed">
-                            This chat may be recorded for quality assurance. You can view our{" "}
+                            {t("chatbot.privacyNotice")}{" "}
                             <a href="/privacy" className="underline hover:text-zinc-600">
-                                privacy policy
+                                {t("chatbot.privacyPolicy")}
                             </a>{" "}
-                            here.
+                            {t("chatbot.privacyHere")}.
                         </p>
                     </div>
                 </motion.div>

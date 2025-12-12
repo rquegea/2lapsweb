@@ -285,6 +285,15 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "ourStory.content.riskReduction.text": "Validación constante y una vista 360 en tiempo real para minimizar lanzamientos fallidos o campañas mal dirigidas, evitando pérdidas de miles de euros.",
     "ourStory.content.strategicVision.title": "Visión estratégica",
     "ourStory.content.strategicVision.text": "Comprensión continua de qué, por qué y hacia dónde se mueve el mercado. Inteligencia accionable que los equipos pueden compartir.",
+
+    // Chatbot Carlos
+    "chatbot.name": "Carlos",
+    "chatbot.role": "Representante de IA",
+    "chatbot.welcomeMessage": "¡Bienvenido de nuevo! Soy Carlos, un Representante de IA en 2Laps. ¿Algo específico sobre lo que tengas curiosidad respecto a nuestra plataforma hoy?",
+    "chatbot.bookMeeting": "Reservar una Reunión",
+    "chatbot.privacyNotice": "Este chat puede ser grabado para garantía de calidad. Puedes ver nuestra",
+    "chatbot.privacyPolicy": "política de privacidad",
+    "chatbot.privacyHere": "aquí",
   },
   en: {
     "nav.features": "Features",
@@ -557,6 +566,15 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "ourStory.content.riskReduction.text": "Constant validation and a 360-degree real-time view to minimize failed launches or mistargeted campaigns, avoiding losses of thousands of euros.",
     "ourStory.content.strategicVision.title": "Strategic vision",
     "ourStory.content.strategicVision.text": "Continuous understanding of what, why, and where the market is moving. Actionable intelligence that teams can share.",
+
+    // Chatbot Carlos
+    "chatbot.name": "Carlos",
+    "chatbot.role": "AI Representative",
+    "chatbot.welcomeMessage": "Welcome back! I'm Carlos, an AI Representative at 2Laps. Anything specific you're curious about regarding our platform today?",
+    "chatbot.bookMeeting": "Book a Meeting",
+    "chatbot.privacyNotice": "This chat may be recorded for quality assurance. You can view our",
+    "chatbot.privacyPolicy": "privacy policy",
+    "chatbot.privacyHere": "here",
   },
 };
 
