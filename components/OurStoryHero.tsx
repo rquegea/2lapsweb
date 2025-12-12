@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useLanguage } from "./LanguageProvider";
 
 const CASES = [
     {
@@ -30,6 +31,8 @@ const CASES = [
 ];
 
 export default function OurStoryHero() {
+    const { t } = useLanguage();
+    
     return (
         <section className="pt-24 pb-32 bg-white">
             <div className="container-v2 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
@@ -39,10 +42,10 @@ export default function OurStoryHero() {
                         className="text-5xl md:text-[64px] font-medium leading-[1.1] tracking-tight mb-8"
                         style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
                     >
-                        <span className="text-primary">Building the future of market intelligence</span> <span className="text-zinc-900">so every decision is insight-led</span>
+                        <span className="text-primary">{t("ourStory.hero.title1")}</span> <span className="text-zinc-900">{t("ourStory.hero.title2")}</span>
                     </h1>
                     <p className="text-xl text-zinc-600 leading-relaxed max-w-xl">
-                        We built 2laps to solve a universal problem: the gap between data and decision. Today, we empower the world's leading organizations to move faster than the market.
+                        {t("ourStory.hero.description")}
                     </p>
                 </div>
 
@@ -57,6 +60,7 @@ export default function OurStoryHero() {
 
 function CarouselCases() {
     const [active, setActive] = useState(0);
+    const { t } = useLanguage();
 
     useEffect(() => {
         const id = setInterval(() => setActive((prev) => (prev + 1) % CASES.length), 4200);
@@ -75,11 +79,11 @@ function CarouselCases() {
             <div className="relative z-10 grid gap-6">
                 <div className="flex items-center justify-between">
                     <div>
-                        <p className="text-xs uppercase tracking-[0.15em] font-semibold text-zinc-500">Our Story</p>
-                        <p className="text-2xl font-semibold text-zinc-900 leading-tight">Real impact on clients</p>
-                        <p className="text-sm text-zinc-600 mt-1">Recent results with 2laps</p>
+                        <p className="text-xs uppercase tracking-[0.15em] font-semibold text-zinc-500">{t("ourStory.carousel.header")}</p>
+                        <p className="text-2xl font-semibold text-zinc-900 leading-tight">{t("ourStory.carousel.title")}</p>
+                        <p className="text-sm text-zinc-600 mt-1">{t("ourStory.carousel.subtitle")}</p>
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">Cases</span>
+                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">{t("ourStory.carousel.cases")}</span>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 shadow-lg ring-1 ring-zinc-200/70">
@@ -98,7 +102,7 @@ function CarouselCases() {
                                         {current.logo}
                                     </div>
                                     <div>
-                                        <p className="text-sm text-zinc-500">Case</p>
+                                        <p className="text-sm text-zinc-500">{t("ourStory.carousel.case")}</p>
                                         <p className="text-lg font-semibold text-zinc-900">{current.company}</p>
                                     </div>
                                 </div>
@@ -130,7 +134,7 @@ function CarouselCases() {
                                     ))}
                                 </div>
                                 <button className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
-                                    View case
+                                    {t("ourStory.carousel.viewCase")}
                                 </button>
                             </div>
                         </motion.div>
