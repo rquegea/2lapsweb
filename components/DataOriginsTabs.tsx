@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "./LanguageProvider";
 
 type TabContent = {
     id: string;
@@ -240,16 +241,17 @@ function InternalVisual() {
 
 export default function DataOriginsTabs() {
     const [activeTab, setActiveTab] = useState(0);
+    const { t } = useLanguage();
 
     return (
         <section className="py-24 bg-white">
             <div className="container-v2">
                 <div className="max-w-3xl mb-16">
                     <h2 className="text-3xl md:text-4xl font-medium text-zinc-900 mb-6" style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}>
-                        Where we source and orchestrate data
+                        {t("dataOrigins.tabs.title")}
                     </h2>
                     <p className="text-lg text-zinc-600 leading-relaxed">
-                        We ingest open sources, media, social, and your internal systems. Models clean, normalize, and link entities so every signal arrives contextualized and decision-ready.
+                        {t("dataOrigins.tabs.description")}
                     </p>
                 </div>
 
@@ -299,11 +301,11 @@ export default function DataOriginsTabs() {
                         <div className="bg-white rounded-2xl shadow-xl w-full max-w-xl p-5 relative z-10 border border-zinc-100">
                             <div className="flex items-center justify-between mb-4">
                                 <div>
-                                    <p className="text-xs uppercase tracking-[0.12em] text-zinc-500">Generated sample</p>
+                                    <p className="text-xs uppercase tracking-[0.12em] text-zinc-500">{t("dataOrigins.tabs.generatedSample")}</p>
                                     <p className="text-sm text-zinc-700">{TABS[activeTab].figureLabel}</p>
                                 </div>
                                 <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                                    LLM + RAG
+                                    {t("dataOrigins.tabs.llmRag")}
                                 </span>
                             </div>
                             <div className="relative w-full h-[280px] rounded-xl overflow-hidden border border-zinc-100 bg-gradient-to-br from-white via-white to-zinc-50">

@@ -1,27 +1,15 @@
-import type { Metadata } from "next";
+"use client";
 import HeaderV2 from "@/components/HeaderV2";
 import DataOriginsHero from "@/components/DataOriginsHero";
 import DataOriginsTabs from "@/components/DataOriginsTabs";
 import CtaSectionV2 from "@/components/CtaSectionV2";
 import FooterV2 from "@/components/FooterV2";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-  title: "Data Point Origins | Trusted Sources for Market Intelligence",
-  description:
-    "Discover how 2laps aggregates and orchestrates data from open web, media, social platforms, and internal systems. Transparent data lineage and source verification.",
-  openGraph: {
-    title: "Data Point Origins | Trusted Sources for Market Intelligence",
-    description:
-      "Discover how 2laps aggregates and orchestrates data from open web, media, social platforms, and internal systems.",
-    url: "https://2laps.trucoytrufa.es/data-point-origins",
-  },
-  alternates: {
-    canonical: "https://2laps.trucoytrufa.es/data-point-origins",
-  },
-};
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function DataOriginsPage() {
+    const { t } = useLanguage();
+    
     return (
         <div className="min-h-screen bg-white font-sans">
             <HeaderV2 />
@@ -34,11 +22,10 @@ export default function DataOriginsPage() {
                                 className="text-3xl md:text-4xl font-medium text-zinc-900 mb-3"
                                 style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
                             >
-                                Our ingestion and LLM orchestration flow
+                                {t("dataOrigins.flow.title")}
                             </h2>
                             <p className="text-lg text-zinc-600">
-                                We connect distributed sources, normalize the data, and elevate it into a
-                                knowledge graph ready for analysis and decision‑making.
+                                {t("dataOrigins.flow.description")}
                             </p>
                         </div>
                         <div className="relative w-full aspect-[16/7]">

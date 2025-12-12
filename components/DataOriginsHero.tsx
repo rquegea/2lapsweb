@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { makeLocalFavicon } from "../lib/localFavicon";
+import { useLanguage } from "./LanguageProvider";
 
 const LLM_LOGOS = [
     { src: "/icons/claude-logo.png", alt: "Claude" },
@@ -127,6 +128,8 @@ const SOURCES = SOURCE_DOMAINS.slice(0, 100).map((domain, i) => ({
 }));
 
 export default function DataOriginsHero() {
+    const { t } = useLanguage();
+    
     // Escenario para favicons aleatorios (uno a uno, sin solaparse)
     const stageRef = useRef<HTMLDivElement | null>(null);
     const [stageSize, setStageSize] = useState<{ w: number; h: number }>({ w: 0, h: 0 });
@@ -266,7 +269,7 @@ export default function DataOriginsHero() {
                         className="text-5xl md:text-[64px] font-medium text-zinc-900 tracking-tight leading-[1.05] mb-10"
                         style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
                     >
-                        Data from the <span className="text-primary">entire Internet</span>, distilled by LLMs
+                        {t("dataOrigins.hero.title")}<span className="text-primary">{t("dataOrigins.hero.titleHighlight")}</span>{t("dataOrigins.hero.titleEnd")}
                     </h1>
 
                     <div className="flex items-center gap-6">
@@ -276,7 +279,7 @@ export default function DataOriginsHero() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-4 text-base font-semibold text-white transition-transform active:scale-95 hover:bg-primary-hover shadow-lg shadow-primary/20"
                         >
-                            Get Started
+                            {t("dataOrigins.hero.cta")}
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 ml-2">
                                 <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
                             </svg>
