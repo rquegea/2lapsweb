@@ -3,6 +3,7 @@ import Image from "next/image";
 import { type ReactNode, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Mic, ArrowUp } from "lucide-react";
+import { useLanguage } from "./LanguageProvider";
 
 type Feature = {
     id: string;
@@ -14,14 +15,14 @@ type Feature = {
 
 export default function PlatformFeatures() {
     const [activeTab, setActiveTab] = useState(0);
-    const askText = "Ask anything about your market";
+    const { t } = useLanguage();
 
     const features: Feature[] = [
         {
             id: "generative-search",
             number: "01",
-            title: "Generative Search",
-            description: "2laps understands your industry's language, anticipates the questions a senior analyst would ask, and returns cited insights in seconds so you can decide without stitching sources.",
+            title: t("platform.features.generativeSearch.title"),
+            description: t("platform.features.generativeSearch.description"),
             mockup: (
                 <div className="relative w-full h-full flex items-center justify-center p-8">
                     {/* Barra de búsqueda protagonista */}
@@ -33,7 +34,7 @@ export default function PlatformFeatures() {
                         </div>
                         <input
                             type="text"
-                            value={askText}
+                            value={t("platform.features.askPlaceholder")}
                             readOnly
                             aria-readonly="true"
                             className="flex-1 text-lg bg-transparent text-zinc-900 placeholder:text-zinc-400 focus:outline-none cursor-default select-none"
@@ -54,8 +55,8 @@ export default function PlatformFeatures() {
         {
             id: "deep-research",
             number: "02",
-            title: "Deep Research",
-            description: "Access transcripts, filings, press, and internal notes in a single view. Deep dive into companies, value chains, and geographies without jumping between tools.",
+            title: t("platform.features.deepResearch.title"),
+            description: t("platform.features.deepResearch.description"),
             mockup: (
                 <div className="relative flex h-full w-full items-center justify-center">
                     <div className="relative">
@@ -109,8 +110,8 @@ export default function PlatformFeatures() {
         {
             id: "monitoring",
             number: "03",
-            title: "Monitoring",
-            description: "Set live alerts on key accounts, trends, and risks. We notify you when market narratives shift, new players emerge, or contradictory evidence shows up.",
+            title: t("platform.features.monitoring.title"),
+            description: t("platform.features.monitoring.description"),
             mockup: (
                 <div className="flex flex-col lg:flex-row h-full w-full p-8 gap-8">
                     {/* Pie chart */}
@@ -149,9 +150,9 @@ export default function PlatformFeatures() {
                         </div>
 
                         <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 shadow-sm">
-                            <div className="text-xs font-semibold uppercase text-amber-700 mb-1 tracking-wide">Alert</div>
+                            <div className="text-xs font-semibold uppercase text-amber-700 mb-1 tracking-wide">{t("platform.features.alert")}</div>
                             <div className="text-sm text-amber-900 leading-relaxed">
-                                Competitor A spiked +12% mention share in the last 48h after a pricing update. Recommend monitoring sentiment and prepping response lines.
+                                {t("platform.features.alertText")}
                             </div>
                         </div>
                     </div>
@@ -161,8 +162,8 @@ export default function PlatformFeatures() {
         {
             id: "enterprise-intelligence",
             number: "04",
-            title: "Enterprise Intelligence",
-            description: "Securely connect your internal documents with our external sources. Search, analyze, and share without data leakage, with access controls and traceability.",
+            title: t("platform.features.enterpriseIntelligence.title"),
+            description: t("platform.features.enterpriseIntelligence.description"),
             mockup: (
                 <div className="relative flex h-full w-full items-center justify-center px-8">
                     {(() => {

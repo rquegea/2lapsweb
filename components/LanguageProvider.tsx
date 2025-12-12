@@ -238,6 +238,31 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "pricing.form.countryES": "España",
     "pricing.form.updates": "Me gustaría recibir actualizaciones y comunicaciones regulares de 2laps.",
     "pricing.form.submit": "Obtener precios",
+
+    // Platform Page
+    "platform.hero.title1": "Una plataforma integrada que convierte señales dispersas en ",
+    "platform.hero.titleHighlight": "ventaja estratégica",
+    "platform.hero.description": "2laps conecta exploración, análisis profundo y storytelling ejecutivo en un solo flujo. Combinamos IA generativa, investigación experta y datos propietarios para que tomes decisiones con contexto y confianza.",
+    "platform.hero.cta": "Explorar el nuevo lanzamiento",
+    "platform.features.generativeSearch.title": "Búsqueda Generativa",
+    "platform.features.generativeSearch.description": "2laps entiende el lenguaje de tu industria, anticipa las preguntas que haría un analista senior y devuelve insights citados en segundos para que puedas decidir sin tener que unir fuentes.",
+    "platform.features.deepResearch.title": "Investigación Profunda",
+    "platform.features.deepResearch.description": "Accede a transcripciones, presentaciones, prensa y notas internas en una sola vista. Profundiza en empresas, cadenas de valor y geografías sin saltar entre herramientas.",
+    "platform.features.monitoring.title": "Monitoreo",
+    "platform.features.monitoring.description": "Establece alertas en vivo sobre cuentas clave, tendencias y riesgos. Te notificamos cuando cambian las narrativas del mercado, emergen nuevos competidores o aparece evidencia contradictoria.",
+    "platform.features.enterpriseIntelligence.title": "Inteligencia Empresarial",
+    "platform.features.enterpriseIntelligence.description": "Conecta de forma segura tus documentos internos con nuestras fuentes externas. Busca, analiza y comparte sin filtración de datos, con controles de acceso y trazabilidad.",
+    "platform.features.askPlaceholder": "Pregunta cualquier cosa sobre tu mercado",
+    "platform.features.alert": "Alerta",
+    "platform.features.alertText": "El Competidor A aumentó +12% en menciones en las últimas 48h tras una actualización de precios. Se recomienda monitorear el sentimiento y preparar líneas de respuesta.",
+
+    // Solutions Page
+    "solutions.hero.getStarted": "Comenzar gratis",
+    "solutions.hero.interactiveTour": "Tour Interactivo",
+    "solutions.hero.thinkingPlaceholder": "Interpretando tu pregunta",
+    "solutions.hero.thinking": "Pensando...",
+    "solutions.hero.analyzePrompt": "Analiza las tendencias actuales en",
+    "solutions.hero.analyzePrompt2": "y cómo la IA está remodelando el panorama competitivo.",
   },
   en: {
     "nav.features": "Features",
@@ -463,6 +488,31 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "pricing.form.countryES": "Spain",
     "pricing.form.updates": "I would like to receive regular updates and communications from 2laps.",
     "pricing.form.submit": "Get pricing",
+
+    // Platform Page
+    "platform.hero.title1": "An integrated platform that turns scattered signals into ",
+    "platform.hero.titleHighlight": "strategic advantage",
+    "platform.hero.description": "2laps connects exploration, deep analysis, and executive storytelling in a single flow. We combine generative AI, expert research, and proprietary data so you make decisions with context and confidence.",
+    "platform.hero.cta": "Explore the new release",
+    "platform.features.generativeSearch.title": "Generative Search",
+    "platform.features.generativeSearch.description": "2laps understands your industry's language, anticipates the questions a senior analyst would ask, and returns cited insights in seconds so you can decide without stitching sources.",
+    "platform.features.deepResearch.title": "Deep Research",
+    "platform.features.deepResearch.description": "Access transcripts, filings, press, and internal notes in a single view. Deep dive into companies, value chains, and geographies without jumping between tools.",
+    "platform.features.monitoring.title": "Monitoring",
+    "platform.features.monitoring.description": "Set live alerts on key accounts, trends, and risks. We notify you when market narratives shift, new players emerge, or contradictory evidence shows up.",
+    "platform.features.enterpriseIntelligence.title": "Enterprise Intelligence",
+    "platform.features.enterpriseIntelligence.description": "Securely connect your internal documents with our external sources. Search, analyze, and share without data leakage, with access controls and traceability.",
+    "platform.features.askPlaceholder": "Ask anything about your market",
+    "platform.features.alert": "Alert",
+    "platform.features.alertText": "Competitor A spiked +12% mention share in the last 48h after a pricing update. Recommend monitoring sentiment and prepping response lines.",
+
+    // Solutions Page
+    "solutions.hero.getStarted": "Get started for free",
+    "solutions.hero.interactiveTour": "Interactive Tour",
+    "solutions.hero.thinkingPlaceholder": "Interpreted your question",
+    "solutions.hero.thinking": "Thinking...",
+    "solutions.hero.analyzePrompt": "Analyze the current trends in",
+    "solutions.hero.analyzePrompt2": "and how AI is reshaping the competitive landscape.",
   },
 };
 
