@@ -4,6 +4,8 @@ import { MagnifyingGlassIcon, ChevronDownIcon } from "@heroicons/react/24/outlin
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/components/LanguageProvider";
 
 type SearchItem = {
   title: string;
@@ -124,7 +126,9 @@ export default function HeaderV2() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
+  const { t } = useLanguage();
 
   const filteredResults = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
@@ -171,19 +175,19 @@ export default function HeaderV2() {
 
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-zinc-100">
-      <div className="container-v2 h-20 flex items-center">
+      <div className="container-v2 h-16 md:h-20 flex items-center">
 
         {/* Logo */}
-        <Link href="/v2" className="inline-flex items-center gap-2 mr-10 z-50 relative">
+        <Link href="/v2" className="inline-flex items-center gap-2 mr-auto md:mr-10 z-50 relative">
           <span
-            className="text-2xl tracking-tight text-zinc-900 font-medium leading-none"
+            className="text-xl md:text-2xl tracking-tight text-zinc-900 font-medium leading-none"
             style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
           >
             2laps
           </span>
         </Link>
 
-        {/* Nav */}
+        {/* Nav Desktop */}
         <nav className="hidden lg:block text-[15px] font-medium text-zinc-600 h-full">
           <ul className="flex items-center gap-8 h-full">
             {NAV_ITEMS.map((item, index) => (
@@ -232,7 +236,7 @@ export default function HeaderV2() {
         </nav>
 
         {/* Right Actions */}
-        <div className="ml-auto flex items-center gap-4 md:gap-6 z-50 relative">
+        <div className="ml-auto flex items-center gap-3 md:gap-6 z-50 relative">
           <button
             type="button"
             className="text-zinc-500 hover:text-zinc-900"
@@ -242,19 +246,102 @@ export default function HeaderV2() {
             <MagnifyingGlassIcon className="h-5 w-5" />
           </button>
 
+          <LanguageSwitcher />
+
           <div className="hidden md:flex items-center gap-4">
             <a href="https://platform.2laps.io" className="text-[15px] font-medium text-zinc-600 hover:text-zinc-900">
-              Log In
+              {t("v2.nav.login")}
             </a>
             <a
-              href="#get-started"
+              href="https://calendly.com/rodrigo-quesada-trucoytrufa/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-[15px] font-semibold text-white transition-transform active:scale-95 hover:bg-primary-hover"
             >
-              Get Started for Free
+              {t("v2.nav.getStarted")}
             </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            className="lg:hidden text-zinc-900 p-2 -mr-2"
+            aria-label="Menu"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {isMobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden border-t border-zinc-100 bg-white overflow-hidden"
+          >
+            <nav className="container-v2 py-6 space-y-6">
+              {NAV_ITEMS.map((item) => (
+                <div key={item.label}>
+                  {item.children ? (
+                    <div>
+                      <div className="text-sm font-semibold text-zinc-900 mb-3">{item.label}</div>
+                      <div className="space-y-3 pl-4 border-l-2 border-zinc-200">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.title}
+                            href={child.href || "#"}
+                            className="block text-sm text-zinc-600 hover:text-primary"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {child.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="block text-sm font-semibold text-zinc-900 hover:text-primary"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
+              ))}
+              <div className="pt-4 space-y-3 border-t border-zinc-100">
+                <a
+                  href="https://platform.2laps.io"
+                  className="block text-sm font-medium text-zinc-600 hover:text-zinc-900"
+                >
+                  {t("v2.nav.login")}
+                </a>
+                <a
+                  href="https://calendly.com/rodrigo-quesada-trucoytrufa/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-hover"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {t("v2.nav.getStarted")}
+                </a>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <SearchOverlay
         isOpen={isSearchOpen}
         query={searchQuery}

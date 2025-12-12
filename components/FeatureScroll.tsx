@@ -107,13 +107,20 @@ export default function FeatureScroll() {
     };
 
     return (
-        <section ref={sectionRef} className="relative bg-white py-24">
-            {/* Fondo azul a la derecha: de mitad de viewport (sm) y más amplio en desktop para cubrir el panel de 5 cols */}
-            <div className="pointer-events-none absolute inset-y-0 right-0 left-1/2 lg:left-[38%] bg-[#0F172A]" />
+        <section ref={sectionRef} className="relative bg-white py-12 md:py-24">
+            {/* Fondo azul a la derecha: solo en desktop */}
+            <div className="pointer-events-none absolute inset-y-0 right-0 left-[38%] bg-[#0F172A] hidden lg:block" />
             <div className="container-v2 relative">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
-                    {/* Left Column: Sticky Navigation */}
-                    <div className="hidden lg:block lg:col-span-4">
+                {/* Título de sección para móvil */}
+                <div className="mb-12 lg:hidden">
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-2" style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}>
+                        Features
+                    </h3>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                    {/* Left Column: Sticky Navigation (solo desktop) */}
+                    <div className="hidden lg:block lg:col-span-3">
                         <div ref={navRef} className="sticky top-32">
                             <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-6" style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}>
                                 Features
@@ -170,35 +177,50 @@ export default function FeatureScroll() {
                         </div>
                     </div>
 
-                    {/* Middle Column: Content */}
-                    <div className="col-span-1 lg:col-span-3 space-y-24">
-                        {FEATURES.map((feature) => (
+                    {/* Middle Column: Content para desktop / Full content para móvil */}
+                    <div className="col-span-1 lg:col-span-2 space-y-16 lg:space-y-24">
+                        {FEATURES.map((feature, index) => (
                             <div
                                 key={feature.id}
                                 id={feature.id}
-                                className="scroll-mt-32 flex flex-col gap-8"
+                                className="scroll-mt-32"
                             >
-                                <div className="lg:hidden">
+                                {/* Versión móvil: muestra todo el contenido */}
+                                <div className="lg:hidden space-y-6">
+                                    <div className="flex items-center gap-3 text-xs text-zinc-500 font-medium">
+                                        <span className="tabular-nums">{(index + 1).toString().padStart(2, "0")}</span>
+                                        <div className="h-px flex-1 bg-zinc-200" />
+                                    </div>
                                     <h3
-                                        className="text-2xl font-medium text-zinc-900 mb-2"
+                                        className="text-3xl md:text-4xl font-semibold text-zinc-900 leading-tight"
                                         style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
                                     >
                                         {feature.title}
                                     </h3>
+                                    <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
+                                        {feature.description}
+                                    </p>
+                                    {/* Panel preview para móvil con fondo oscuro */}
+                                    <div className="mt-8 bg-[#0F172A] rounded-xl p-6 md:p-8">
+                                        {feature.id === "market-intelligence" && <PanelMarket />}
+                                        {feature.id === "predictive-analytics" && <PanelPredictive />}
+                                        {feature.id === "automated-reporting" && <PanelReporting />}
+                                        {feature.id === "competitor-benchmarking" && <PanelBenchmark />}
+                                    </div>
                                 </div>
 
-                                {/* Área de anclaje sin cards (solo espacio para scroll/activación) */}
-                                <div className="min-h-[90vh]" aria-hidden="true" />
+                                {/* Versión desktop: área de anclaje invisible */}
+                                <div className="hidden lg:block min-h-[90vh]" aria-hidden="true" />
                             </div>
                         ))}
                     </div>
 
-                    {/* Right Column: Sticky preview sobre fondo azul a toda derecha */}
-                    <div className="hidden lg:block lg:col-span-5">
+                    {/* Right Column: Sticky preview sobre fondo azul (solo desktop) */}
+                    <div className="hidden lg:block lg:col-span-7">
                         <div className="sticky top-24 h-[calc(100vh-6rem)] rounded-2xl overflow-visible relative">
                             {/* Panel activo */}
-                            <div className="absolute inset-0 p-6 flex items-center justify-center">
-                                <motion.div key={activeId} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="w-full">
+                            <div className="absolute inset-0 flex items-center justify-center px-8">
+                                <motion.div key={activeId} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="w-full max-w-3xl mx-auto">
                                     {activeId === "market-intelligence" && <PanelMarket />}
                                     {activeId === "predictive-analytics" && <PanelPredictive />}
                                     {activeId === "automated-reporting" && <PanelReporting />}

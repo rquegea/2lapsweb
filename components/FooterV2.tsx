@@ -81,12 +81,12 @@ function FooterColumn({ column, colIndex }: { column: typeof FOOTER_LINKS[0], co
 
 export default function FooterV2() {
     return (
-        <footer className="bg-[#111111] text-white pt-20 pb-10">
-            <div className="container-v2">
+        <footer className="bg-[#111111] text-white pt-12 md:pt-20 pb-10 relative overflow-hidden">
+            <div className="container-v2 relative z-10">
                 <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-20">
 
                     {/* Links Columns */}
-                    <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-10">
+                    <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
                         {FOOTER_LINKS.map((column, colIndex) => (
                             <FooterColumn key={column.title} column={column} colIndex={colIndex} />
                         ))}
@@ -95,7 +95,7 @@ export default function FooterV2() {
                     {/* Right Side: Actions */}
                     <div className="lg:w-72 flex flex-col items-start gap-6">
                         <Link
-                            href="#login"
+                            href="https://platform.2laps.io"
                             className="w-full text-center rounded-md bg-white text-zinc-900 px-6 py-3 text-sm font-semibold hover:bg-zinc-100 transition-colors"
                         >
                             Log In
@@ -123,10 +123,10 @@ export default function FooterV2() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="mt-20 pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="mt-12 md:mt-20 pt-6 md:pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6">
                     <div className="flex items-center gap-2">
                         <span
-                            className="text-2xl tracking-tight text-white font-medium leading-none"
+                            className="text-xl md:text-2xl tracking-tight text-white font-medium leading-none"
                             style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
                         >
                             2laps
@@ -135,7 +135,7 @@ export default function FooterV2() {
 
                     <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-xs text-zinc-500">
                         <span>2laps Inc. 2025. All Rights Reserved</span>
-                        <div className="flex gap-6">
+                        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
                             <Link href="#" className="hover:text-zinc-300">Legal & Compliance</Link>
                             <Link href="#" className="hover:text-zinc-300">Cookie Preferences</Link>
                             <Link href="#" className="hover:text-zinc-300">Privacy Policy</Link>
