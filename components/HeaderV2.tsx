@@ -45,45 +45,46 @@ const SEARCH_INDEX: SearchItem[] = [
 
 const NAV_ITEMS: NavItem[] = [
   {
-    label: "Platform",
+    label: "v2.nav.platform",
     href: "#platform",
     children: [
-      { title: "The 2laps Platform", desc: "Explore features, tools, and workflows", icon: "layers", href: "/platform" },
-      { title: "Data Point Origins", desc: "Trusted sources that power crucial insights", icon: "folder", href: "/data-point-origins" },
-      { title: "Enterprise Intelligence", desc: "Unlock value from your internal content", icon: "cube", href: "/platform/enterprise-intelligence" },
+      { title: "v2.nav.platform.main", desc: "v2.nav.platform.main.desc", icon: "layers", href: "/platform" },
+      { title: "v2.nav.platform.origins", desc: "v2.nav.platform.origins.desc", icon: "folder", href: "/data-point-origins" },
+      { title: "v2.nav.platform.enterprise", desc: "v2.nav.platform.enterprise.desc", icon: "cube", href: "/platform/enterprise-intelligence" },
     ]
   },
   {
-    label: "Solutions",
+    label: "v2.nav.solutions",
     href: "#solutions",
     children: [
-      { title: "FMCG", desc: "Spot trends, analyze competitors, innovate faster", icon: "shopping-bag", href: "/solutions/fmcg" },
-      { title: "Education", desc: "Accelerate discovery, secure funding, enhance curriculum", icon: "academic-cap", href: "/solutions/education" },
+      { title: "v2.nav.solutions.fmcg", desc: "v2.nav.solutions.fmcg.desc", icon: "shopping-bag", href: "/solutions/fmcg" },
+      { title: "v2.nav.solutions.education", desc: "v2.nav.solutions.education.desc", icon: "academic-cap", href: "/solutions/education" },
     ]
   },
   {
-    label: "Resources",
+    label: "v2.nav.resources",
     href: "#resources",
     children: [
-      { title: "Blog", desc: "Latest news and insights", icon: "newspaper", href: "/resources/blog" },
-      { title: "Case Studies", desc: "See how others succeed", icon: "document", href: "/resources/case-studies" },
-      { title: "Webinars", desc: "Learn from the experts", icon: "video", href: "/resources/webinars" },
+      { title: "v2.nav.resources.blog", desc: "v2.nav.resources.blog.desc", icon: "newspaper", href: "/resources/blog" },
+      { title: "v2.nav.resources.caseStudies", desc: "v2.nav.resources.caseStudies.desc", icon: "document", href: "/resources/case-studies" },
+      { title: "v2.nav.resources.webinars", desc: "v2.nav.resources.webinars.desc", icon: "video", href: "/resources/webinars" },
     ]
   },
   {
-    label: "About",
+    label: "v2.nav.about",
     href: "#about",
     children: [
-      { title: "Our Story", desc: "Why we built 2laps", icon: "flag", href: "/about/our-story" },
-      { title: "Careers", desc: "Join our team", icon: "user-group", href: "/about/careers" },
-      { title: "Contact", desc: "Get in touch", icon: "chat", href: "/about/contact" },
+      { title: "v2.nav.about.story", desc: "v2.nav.about.story.desc", icon: "flag", href: "/about/our-story" },
+      { title: "v2.nav.about.careers", desc: "v2.nav.about.careers.desc", icon: "user-group", href: "/about/careers" },
+      { title: "v2.nav.about.contact", desc: "v2.nav.about.contact.desc", icon: "chat", href: "/about/contact" },
     ]
   },
-  { label: "Pricing", href: "/pricing" }, // No dropdown for pricing
+  { label: "v2.nav.pricing", href: "/pricing" }, // No dropdown for pricing
 ];
 
 function DropdownMenu({ items }: Readonly<{ items: NavChild[] }>) {
   const [hoveredChild, setHoveredChild] = useState<number | null>(null);
+  const { t } = useLanguage();
 
   return (
     <ul className="flex flex-col relative" onMouseLeave={() => setHoveredChild(null)}>
@@ -109,10 +110,10 @@ function DropdownMenu({ items }: Readonly<{ items: NavChild[] }>) {
             </div>
             <div>
               <div className="text-zinc-900 font-semibold text-sm group-hover/item:text-primary transition-colors">
-                {child.title}
+                {t(child.title)}
               </div>
               <div className="text-zinc-500 text-xs mt-0.5 font-normal">
-                {child.desc}
+                {t(child.desc)}
               </div>
             </div>
           </Link>
@@ -202,7 +203,7 @@ export default function HeaderV2() {
                   className={`group inline-flex items-center gap-1 transition-colors relative py-2 ${hoveredIndex === index ? "text-zinc-900" : "hover:text-zinc-900"
                     }`}
                 >
-                  <span>{item.label}</span>
+                  <span>{t(item.label)}</span>
                   {item.children && (
                     <ChevronDownIcon
                       className={`h-3 w-3 transition-transform duration-200 ${hoveredIndex === index ? "rotate-180" : ""
@@ -295,7 +296,7 @@ export default function HeaderV2() {
                 <div key={item.label}>
                   {item.children ? (
                     <div>
-                      <div className="text-sm font-semibold text-zinc-900 mb-3">{item.label}</div>
+                      <div className="text-sm font-semibold text-zinc-900 mb-3">{t(item.label)}</div>
                       <div className="space-y-3 pl-4 border-l-2 border-zinc-200">
                         {item.children.map((child) => (
                           <Link
@@ -304,7 +305,7 @@ export default function HeaderV2() {
                             className="block text-sm text-zinc-600 hover:text-primary"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
-                            {child.title}
+                            {t(child.title)}
                           </Link>
                         ))}
                       </div>
@@ -315,7 +316,7 @@ export default function HeaderV2() {
                       className="block text-sm font-semibold text-zinc-900 hover:text-primary"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      {item.label}
+                      {t(item.label)}
                     </Link>
                   )}
                 </div>
@@ -388,6 +389,8 @@ function SearchOverlay({
   onClose: () => void;
   onSelect: (href: string) => void;
 }>) {
+  const { t } = useLanguage();
+  
   return (
     <AnimatePresence>
       {isOpen && (
@@ -418,7 +421,7 @@ function SearchOverlay({
                     onSelect(results[0].href);
                   }
                 }}
-                placeholder="Buscar en 2laps (⌘K / Ctrl+K)"
+                placeholder={t("v2.search.placeholder")}
                 className="w-full bg-transparent text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none"
               />
               <button
@@ -432,7 +435,7 @@ function SearchOverlay({
 
             <div className="max-h-96 overflow-y-auto">
               {results.length === 0 && (
-                <div className="px-4 py-6 text-sm text-zinc-500">Sin resultados para “{query}”.</div>
+                <div className="px-4 py-6 text-sm text-zinc-500">{t("v2.search.noResults")} "{query}".</div>
               )}
 
               {results.map((item) => (
