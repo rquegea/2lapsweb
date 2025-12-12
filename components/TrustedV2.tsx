@@ -1,4 +1,5 @@
 "use client";
+import { useLanguage } from "@/components/LanguageProvider";
 
 // 1. Sube tus logos a la carpeta "public/logos/"
 // 2. Asegúrate de que los nombres de archivo coincidan aquí abajo:
@@ -15,6 +16,8 @@ const BRANDS = [
 ];
 
 export default function TrustedV2() {
+  const { t } = useLanguage();
+
   return (
     <section className="bg-white">
       <div className="container-v2 py-16 md:py-24 text-center">
@@ -22,7 +25,7 @@ export default function TrustedV2() {
           className="text-3xl md:text-5xl font-medium tracking-tight text-zinc-900"
           style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
         >
-          The choice of top companies
+          {t("v2.trusted.title")}
         </h2>
 
         {/* Grid de logos */}
@@ -32,7 +35,7 @@ export default function TrustedV2() {
               {/* Imagen del logo */}
               <img
                 src={brand.logo}
-                alt={brand.name}
+                alt={`${brand.name} - Cliente de 2laps para inteligencia de mercado y análisis competitivo`}
                 // Ajusta 'h-8' o 'h-10' para cambiar el tamaño general de los logos
                 className="h-8 md:h-10 w-auto max-w-[160px] object-contain opacity-60 grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
                 // Script simple para manejar si la imagen no existe

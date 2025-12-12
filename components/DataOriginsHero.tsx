@@ -271,7 +271,9 @@ export default function DataOriginsHero() {
 
                     <div className="flex items-center gap-6">
                         <a
-                            href="/contact"
+                            href="https://calendly.com/rodrigo-quesada-trucoytrufa/30min"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-4 text-base font-semibold text-white transition-transform active:scale-95 hover:bg-primary-hover shadow-lg shadow-primary/20"
                         >
                             Get Started

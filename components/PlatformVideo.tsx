@@ -12,7 +12,7 @@ export default function PlatformVideo() {
                         {/* Content mimicking the AI analysis video/demo */}
                         <div className="max-w-3xl relative z-10 text-center">
                             <p className="text-xl md:text-3xl text-zinc-800 leading-relaxed mb-0 font-medium">
-                                <span className="bg-[#FFF500] px-1 box-decoration-clone">Our platform connects public and private signals</span> — transcripts, filings, press, and internal notes — to surface <span className="bg-[#FFF500] px-1 box-decoration-clone">where the real opportunity opens</span>. Across the data stack we show who captures demand, which partners keep margin, and what risks are emerging.
+                                <span className="bg-[#FFF500] px-1 box-decoration-clone">Our platform connects public and private signals</span> — Open Web, Media & Press, Social & Forums, and Internal Data — to surface <span className="bg-[#FFF500] px-1 box-decoration-clone">where the real opportunity opens</span>. Across the data stack we show who captures demand, which partners keep margin, and what risks are emerging.
                             </p>
                         </div>
 

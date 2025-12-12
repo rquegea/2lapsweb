@@ -1,6 +1,13 @@
-"use client";
 import HeaderV2 from "@/components/HeaderV2";
 import Footer from "@/components/Footer";
+
+export function generateStaticParams() {
+    return [
+        { slug: 'retail' },
+        { slug: 'fmcg' },
+        { slug: 'education' },
+    ];
+}
 
 export default function SolutionPage({ params }: { params: { slug: string } }) {
     return (

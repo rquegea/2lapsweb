@@ -109,6 +109,82 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "process.card3.title": "Soporte y Optimización Continua",
     "process.card3.desc": "Tras el despliegue, damos soporte y refinamos tus sistemas de IA para mantener su mejor rendimiento.",
     "process.card3.image": "Visual de optimización",
+
+    // V2 Navigation & Header
+    "v2.nav.platform": "Plataforma",
+    "v2.nav.solutions": "Soluciones",
+    "v2.nav.resources": "Recursos",
+    "v2.nav.about": "Nosotros",
+    "v2.nav.pricing": "Precios",
+    "v2.nav.login": "Iniciar Sesión",
+    "v2.nav.getStarted": "Comenzar Gratis",
+    "v2.search.placeholder": "Buscar en 2laps (⌘K / Ctrl+K)",
+    "v2.search.noResults": "Sin resultados para",
+
+    // V2 Hero
+    "v2.hero.title1": "Toma cada decisión con",
+    "v2.hero.title2": "la última inteligencia del mercado",
+    "v2.hero.description": "Optimiza tu flujo de trabajo con una plataforma de nivel empresarial — diseñada para equipos que necesitan moverse rápido y tomar decisiones confiadas con la inteligencia de mercado más fresca.",
+    "v2.hero.cta": "Comenzar gratis",
+
+    // V2 Trusted Brands
+    "v2.trusted.title": "La elección de las mejores compañías",
+
+    // V2 Solutions
+    "v2.solutions.badge": "Explorar soluciones",
+    "v2.solutions.title": "Insights de IA que hablan el lenguaje de tu mercado",
+    "v2.solutions.fmcg": "FMCG",
+    "v2.solutions.education": "Educación",
+
+    // V2 Platform Description
+    "v2.platform.title": "La plataforma de análisis de mercado más exhaustiva, rápida y confiable jamás creada.",
+
+    // V2 Features
+    "v2.features.badge": "Características",
+    "v2.features.market.title": "Inteligencia de Mercado",
+    "v2.features.market.desc": "Obtén una vista completa de tu mercado con agregación de datos en tiempo real. Rastreamos competidores, estrategias de precios y sentimiento del consumidor para que tú no tengas que hacerlo.",
+    "v2.features.predictive.title": "Análisis Predictivo",
+    "v2.features.predictive.desc": "Anticípate a las tendencias del mercado con modelos de machine learning que analizan patrones históricos y señales emergentes para proyectar movimientos futuros.",
+    "v2.features.reporting.title": "Informes Automatizados",
+    "v2.features.reporting.desc": "Genera informes personalizados automáticamente con insights accionables. Ahorra horas de trabajo manual y comparte hallazgos clave con tu equipo al instante.",
+    "v2.features.benchmarking.title": "Comparación Competitiva",
+    "v2.features.benchmarking.desc": "Compara tu rendimiento con la competencia a través de métricas clave. Identifica fortalezas, debilidades y oportunidades de mejora en tiempo real.",
+
+    // V2 New Release
+    "v2.newRelease.badge": "Nuevo Lanzamiento",
+    "v2.newRelease.title": "Investigación accionable en un solo lugar, con agentes de IA que preparan todo por ti",
+    "v2.newRelease.description1": "Centralizamos los datos que tu próxima decisión necesita: fundamentos estandarizados, transcripciones, documentos y noticias—listos para explorar sin saltar entre herramientas.",
+    "v2.newRelease.description2": "Nuestros agentes de flujo investigan, sintetizan y entregan resúmenes listos para el comité en segundos. Úsalos para preparación, análisis de ganancias, comparación competitiva o diligencia debida mientras te enfocas en estrategia.",
+    "v2.newRelease.preview": "Vista previa disponible pronto",
+
+    // V2 CTA
+    "v2.cta.title": "De Datos a",
+    "v2.cta.titleHighlight": "Acción",
+    "v2.cta.description": "Desarrolla estrategias audaces, aprovecha oportunidades y lidera con claridad y confianza.",
+    "v2.cta.button": "Comenzar Gratis",
+
+    // V2 Footer
+    "v2.footer.platform": "Plataforma",
+    "v2.footer.platform.main": "La Plataforma 2laps",
+    "v2.footer.platform.origins": "Orígenes de Datos",
+    "v2.footer.platform.enterprise": "Inteligencia Empresarial",
+    "v2.footer.solutions": "Soluciones",
+    "v2.footer.solutions.fmcg": "FMCG",
+    "v2.footer.solutions.education": "Educación",
+    "v2.footer.resources": "Recursos",
+    "v2.footer.resources.blog": "Blog",
+    "v2.footer.resources.caseStudies": "Casos de Estudio",
+    "v2.footer.resources.webinars": "Webinars",
+    "v2.footer.about": "Nosotros",
+    "v2.footer.about.story": "Nuestra Historia",
+    "v2.footer.about.careers": "Carreras",
+    "v2.footer.about.contact": "Contacto",
+    "v2.footer.login": "Iniciar Sesión",
+    "v2.footer.legal": "Legal y Cumplimiento",
+    "v2.footer.cookies": "Preferencias de Cookies",
+    "v2.footer.privacy": "Política de Privacidad",
+    "v2.footer.terms": "Términos y Condiciones",
+    "v2.footer.copyright": "2laps Inc. 2025. Todos los Derechos Reservados",
   },
   en: {
     "nav.features": "Features",
@@ -205,6 +281,82 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "process.card3.title": "Ongoing Support & Optimization",
     "process.card3.desc": "After deployment, we provide support and refine your AI systems to keep them performing at their best.",
     "process.card3.image": "Optimization visual",
+
+    // V2 Navigation & Header
+    "v2.nav.platform": "Platform",
+    "v2.nav.solutions": "Solutions",
+    "v2.nav.resources": "Resources",
+    "v2.nav.about": "About",
+    "v2.nav.pricing": "Pricing",
+    "v2.nav.login": "Log In",
+    "v2.nav.getStarted": "Get Started for Free",
+    "v2.search.placeholder": "Search 2laps (⌘K / Ctrl+K)",
+    "v2.search.noResults": "No results for",
+
+    // V2 Hero
+    "v2.hero.title1": "Make every decision with",
+    "v2.hero.title2": "the market's latest intelligence",
+    "v2.hero.description": "Streamline your workflow with an enterprise‑grade platform — designed for teams who need to move quickly and make confident decisions with the freshest market intelligence.",
+    "v2.hero.cta": "Get started for free",
+
+    // V2 Trusted Brands
+    "v2.trusted.title": "The choice of top companies",
+
+    // V2 Solutions
+    "v2.solutions.badge": "Explore solutions",
+    "v2.solutions.title": "AI Insights that speak your market's language",
+    "v2.solutions.fmcg": "FMCG",
+    "v2.solutions.education": "Education",
+
+    // V2 Platform Description
+    "v2.platform.title": "The most exhaustive fast and reliable market analysis platform ever.",
+
+    // V2 Features
+    "v2.features.badge": "Features",
+    "v2.features.market.title": "Market Intelligence",
+    "v2.features.market.desc": "Get a complete view of your market with real-time data aggregation. We track competitors, pricing strategies, and consumer sentiment so you don't have to.",
+    "v2.features.predictive.title": "Predictive Analytics",
+    "v2.features.predictive.desc": "Stay ahead of market trends with machine learning models that analyze historical patterns and emerging signals to project future movements.",
+    "v2.features.reporting.title": "Automated Reporting",
+    "v2.features.reporting.desc": "Generate custom reports automatically with actionable insights. Save hours of manual work and share key findings with your team instantly.",
+    "v2.features.benchmarking.title": "Competitor Benchmarking",
+    "v2.features.benchmarking.desc": "Compare your performance against competitors across key metrics. Identify strengths, weaknesses, and opportunities for improvement in real-time.",
+
+    // V2 New Release
+    "v2.newRelease.badge": "New Release",
+    "v2.newRelease.title": "Actionable research in one place, with AI agents that prep everything for you",
+    "v2.newRelease.description1": "We centralize the data your next decision needs: standardized fundamentals, transcripts, filings, and news—ready to explore without jumping between tools.",
+    "v2.newRelease.description2": "Our workflow agents investigate, synthesize, and deliver committee-ready summaries in seconds. Use them for ramp-ups, earnings prep, competitive benchmarking, or diligence while you stay focused on strategy.",
+    "v2.newRelease.preview": "Preview available soon",
+
+    // V2 CTA
+    "v2.cta.title": "From Data to",
+    "v2.cta.titleHighlight": "Action",
+    "v2.cta.description": "Develop bold strategies, seize opportunities, and lead with clarity and confidence.",
+    "v2.cta.button": "Get Started for Free",
+
+    // V2 Footer
+    "v2.footer.platform": "Platform",
+    "v2.footer.platform.main": "The 2laps Platform",
+    "v2.footer.platform.origins": "Data Point Origins",
+    "v2.footer.platform.enterprise": "Enterprise Intelligence",
+    "v2.footer.solutions": "Solutions",
+    "v2.footer.solutions.fmcg": "FMCG",
+    "v2.footer.solutions.education": "Education",
+    "v2.footer.resources": "Resources",
+    "v2.footer.resources.blog": "Blog",
+    "v2.footer.resources.caseStudies": "Case Studies",
+    "v2.footer.resources.webinars": "Webinars",
+    "v2.footer.about": "About",
+    "v2.footer.about.story": "Our Story",
+    "v2.footer.about.careers": "Careers",
+    "v2.footer.about.contact": "Contact",
+    "v2.footer.login": "Log In",
+    "v2.footer.legal": "Legal & Compliance",
+    "v2.footer.cookies": "Cookie Preferences",
+    "v2.footer.privacy": "Privacy Policy",
+    "v2.footer.terms": "Terms & Conditions",
+    "v2.footer.copyright": "2laps Inc. 2025. All Rights Reserved",
   },
 };
 

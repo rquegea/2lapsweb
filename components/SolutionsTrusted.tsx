@@ -26,7 +26,7 @@ export default function SolutionsTrusted({ title = "Trusted by industry leaders"
                         <div key={brand.name} className="group relative flex items-center justify-center">
                             <img
                                 src={brand.logo}
-                                alt={brand.name}
+                                alt={`${brand.name} - Cliente de 2laps para inteligencia de mercado y análisis competitivo`}
                                 className="h-8 md:h-12 w-auto max-w-[180px] object-contain opacity-60 grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
                                 onError={(e) => {
                                     const img = e.currentTarget;

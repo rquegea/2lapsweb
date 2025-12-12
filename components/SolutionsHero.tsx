@@ -25,7 +25,9 @@ export default function SolutionsHero({ industry, title, subtitle }: SolutionsHe
                     </p>
                     <div className="flex items-center gap-6">
                         <a
-                            href="#"
+                            href="https://calendly.com/rodrigo-quesada-trucoytrufa/30min"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-primary transition-transform active:scale-95 hover:bg-zinc-50"
                         >
                             Get started for free

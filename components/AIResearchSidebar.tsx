@@ -124,8 +124,8 @@ export default function AIResearchSidebar() {
                                         </span>
                                         <motion.div
                                             /* Haz que el círculo rote siempre que no estemos en resultado */
-                                            animate={{ rotate: phase !== "result" ? 360 : 0 }}
-                                            transition={{ duration: 1.6, repeat: phase !== "result" ? Infinity : 0, ease: "linear" }}
+                                            animate={{ rotate: phase === "input" || phase === "thinking" ? 360 : 0 }}
+                                            transition={{ duration: 1.6, repeat: phase === "input" || phase === "thinking" ? Infinity : 0, ease: "linear" }}
                                         >
                                             <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full" />
                                         </motion.div>

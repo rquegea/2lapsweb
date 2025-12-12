@@ -71,8 +71,41 @@ export default function BlogPostPage({ params }: Props) {
     );
   }
 
+  const baseUrl = "https://2laps.trucoytrufa.es";
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: `${baseUrl}/icons/@2laps-logo.png`,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Organization",
+      name: "2laps",
+      url: baseUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "2laps",
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/icons/@2laps-logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/resources/blog/${post.slug}`,
+    },
+    articleSection: post.tags.join(", "),
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <HeaderV2 />
       <main>
         <article className="pt-28 pb-16">
@@ -106,6 +139,9 @@ export default function BlogPostPage({ params }: Props) {
     </div>
   );
 }
+
+
+
 
 
 

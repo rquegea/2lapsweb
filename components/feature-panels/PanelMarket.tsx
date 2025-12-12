@@ -34,6 +34,10 @@ export default function PanelMarket() {
         { id: "t11", value: 10 },
         { id: "t12", value: 13 },
     ];
+    const barWidth = 8;
+    const barGap = 6;
+    const chartWidth = bars.length * (barWidth + barGap) - barGap;
+    const chartHeight = (chartWidth * 3) / 4; // Mantener aspecto 4:3
 
     const getFavicon = (domain: string) => makeLocalFavicon(domain, 48);
 
@@ -76,7 +80,7 @@ export default function PanelMarket() {
                             <div className="flex items-center gap-3">
                                 <img
                                     src={getFavicon(t.domain)}
-                                    alt={`${t.code} favicon`}
+                                    alt={`${t.name || t.code} company logo - Market intelligence data source tracked by 2laps`}
                                     className="w-8 h-8 rounded-full border border-zinc-200 bg-white"
                                     style={{ background: t.color }}
                                 />
@@ -99,7 +103,7 @@ export default function PanelMarket() {
                             <div key={s.title} className="flex items-start gap-3">
                                 <img
                                     src={getFavicon(s.domain)}
-                                    alt={`${s.domain} favicon`}
+                                    alt={`${s.domain} source logo - Market intelligence data aggregated by 2laps platform`}
                                     className="w-6 h-6 rounded-md border border-zinc-200 shrink-0 mt-0.5 bg-white"
                                 />
                                 <div className="space-y-0.5">
@@ -127,18 +131,18 @@ export default function PanelMarket() {
 
                     <div className="rounded-lg border border-zinc-200 p-3 bg-white">
                         <div className="text-sm font-semibold text-zinc-800 mb-1">News velocity (notes/hr)</div>
-                        <div className="text-xs text-zinc-500 mb-2">Spikes vs. 7d baseline</div>
-                        <svg viewBox="0 0 120 36" className="w-full h-16">
+                        <div className="text-xs text-zinc-500 mb-3">Spikes vs. 7d baseline</div>
+                        <div className="w-full aspect-[4/3]">
+                            <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} className="w-full h-full" preserveAspectRatio="none">
                             {bars.map((b, i) => {
-                                const w = 6;
-                                const x = i * (w + 4);
-                                const h = Math.max(2, Math.min(30, b.value));
+                                    const x = i * (barWidth + barGap);
+                                    const h = Math.max(6, Math.min(chartHeight - 6, b.value * 3));
                                 return (
                                     <rect
                                         key={b.id}
                                         x={x}
-                                        y={36 - h}
-                                        width={w}
+                                            y={chartHeight - h}
+                                            width={barWidth}
                                         height={h}
                                         fill={i % 2 === 0 ? "#e11d48" : "#d4d4d8"}
                                         rx={1}
@@ -146,12 +150,14 @@ export default function PanelMarket() {
                                 );
                             })}
                         </svg>
+                        </div>
                     </div>
                 </div>
             </div>
         </motion.div>
     );
 }
+
 
 
 

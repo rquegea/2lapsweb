@@ -1,9 +1,25 @@
+import type { Metadata } from "next";
 import HeaderV2 from "@/components/HeaderV2";
 import DataOriginsHero from "@/components/DataOriginsHero";
 import DataOriginsTabs from "@/components/DataOriginsTabs";
 import CtaSectionV2 from "@/components/CtaSectionV2";
 import FooterV2 from "@/components/FooterV2";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Data Point Origins | Trusted Sources for Market Intelligence",
+  description:
+    "Discover how 2laps aggregates and orchestrates data from open web, media, social platforms, and internal systems. Transparent data lineage and source verification.",
+  openGraph: {
+    title: "Data Point Origins | Trusted Sources for Market Intelligence",
+    description:
+      "Discover how 2laps aggregates and orchestrates data from open web, media, social platforms, and internal systems.",
+    url: "https://2laps.trucoytrufa.es/data-point-origins",
+  },
+  alternates: {
+    canonical: "https://2laps.trucoytrufa.es/data-point-origins",
+  },
+};
 
 export default function DataOriginsPage() {
     return (

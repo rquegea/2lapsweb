@@ -49,7 +49,7 @@ export default function PanelBenchmark() {
                                     <div className="px-3 py-2 font-semibold text-zinc-900 flex items-center gap-2">
                                         <img
                                             src={getFavicon(c.domain)}
-                                            alt={`${c.name} favicon`}
+                                            alt={`${c.name} company logo - Competitor benchmark data tracked by 2laps market intelligence platform`}
                                             className="w-8 h-8 rounded-full border border-zinc-200 bg-white"
                                         />
                                         {c.name}
@@ -82,6 +82,8 @@ export default function PanelBenchmark() {
         </motion.div>
     );
 }
+
+
 
 
 

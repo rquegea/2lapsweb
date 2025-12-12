@@ -7,25 +7,25 @@ const CASES = [
         id: "retail",
         logo: "Retail",
         company: "RetailCo",
-        metric: "+24% cobertura",
-        summary: "Conectamos 120+ fuentes retail y activamos alertas en 2 semanas.",
-        bullets: ["Omnicanal unificado", "-18% ruido en menciones", "Playbooks listos para marketing"],
+        metric: "+24% coverage",
+        summary: "We connected 120+ retail sources and activated alerts in 2 weeks.",
+        bullets: ["Unified omnichannel", "-18% noise in mentions", "Marketing-ready playbooks"],
     },
     {
         id: "telco",
         logo: "Telco",
         company: "TeleNorth",
-        metric: "-32% tiempo a insight",
-        summary: "Automatizamos ingesta y validación; insights diarios para el equipo de marca.",
-        bullets: ["ETL gestionado", "Alertas de riesgo en vivo", "Copilots para briefs"],
+        metric: "-32% time to insight",
+        summary: "Automated ingestion and validation; daily insights for the brand team.",
+        bullets: ["Managed ETL", "Live risk alerts", "Copilots for briefs"],
     },
     {
         id: "cpg",
         logo: "CPG",
         company: "Fresh&Co",
-        metric: "+18% lift en campañas",
-        summary: "Narrativas emergentes detectadas 10 días antes que la competencia.",
-        bullets: ["Signals de sentimiento", "Briefs con citados", "Orquestación multi-canal"],
+        metric: "+18% campaign lift",
+        summary: "Emerging narratives detected 10 days ahead of competition.",
+        bullets: ["Sentiment signals", "Cited briefs", "Multi-channel orchestration"],
     },
 ];
 
@@ -76,10 +76,10 @@ function CarouselCases() {
                 <div className="flex items-center justify-between">
                     <div>
                         <p className="text-xs uppercase tracking-[0.15em] font-semibold text-zinc-500">Our Story</p>
-                        <p className="text-2xl font-semibold text-zinc-900 leading-tight">Impacto real en clientes</p>
-                        <p className="text-sm text-zinc-600 mt-1">Resultados recientes con 2laps</p>
+                        <p className="text-2xl font-semibold text-zinc-900 leading-tight">Real impact on clients</p>
+                        <p className="text-sm text-zinc-600 mt-1">Recent results with 2laps</p>
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">Casos</span>
+                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">Cases</span>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 shadow-lg ring-1 ring-zinc-200/70">
@@ -98,7 +98,7 @@ function CarouselCases() {
                                         {current.logo}
                                     </div>
                                     <div>
-                                        <p className="text-sm text-zinc-500">Caso</p>
+                                        <p className="text-sm text-zinc-500">Case</p>
                                         <p className="text-lg font-semibold text-zinc-900">{current.company}</p>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@ function CarouselCases() {
                                     {CASES.map((item, idx) => (
                                         <button
                                             key={item.id}
-                                            aria-label={`Ver caso ${idx + 1}`}
+                                            aria-label={`View case ${idx + 1}`}
                                             onClick={() => setActive(idx)}
                                             className={`h-2.5 rounded-full transition-all ${active === idx ? "w-6 bg-primary" : "w-2.5 bg-zinc-200"
                                                 }`}
@@ -130,7 +130,7 @@ function CarouselCases() {
                                     ))}
                                 </div>
                                 <button className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
-                                    Ver caso
+                                    View case
                                 </button>
                             </div>
                         </motion.div>

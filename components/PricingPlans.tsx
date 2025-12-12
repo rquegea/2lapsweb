@@ -10,50 +10,50 @@ type Plan = {
 const plans: Plan[] = [
     {
         title: "Essential",
-        ideal: "Monitorización básica para equipos pequeños",
+        ideal: "Basic monitoring for small teams",
         items: [
-            { label: "Conversaciones analizadas / mes", value: "Hasta 3.600" },
-            { label: "Análisis", value: "Semanal (Essential) / Mensual (Essential)" },
-            { label: "Soporte", value: "Inicial (email)" },
-            { label: "Puesta en marcha", value: "Kickoff guiado" },
-            { label: "Conversaciones adicionales", value: "Contactar para pack" }
+            { label: "Analyzed conversations / month", value: "Up to 3,600" },
+            { label: "Analysis", value: "Weekly (Essential) / Monthly (Essential)" },
+            { label: "Support", value: "Initial (email)" },
+            { label: "Setup", value: "Guided kickoff" },
+            { label: "Additional conversations", value: "Contact for pack" }
         ]
     },
     {
         title: "Professional",
-        ideal: "Equipos de marketing y estrategia",
+        ideal: "Marketing and strategy teams",
         items: [
-            { label: "Conversaciones analizadas / mes", value: "Hasta 10.800" },
-            { label: "Análisis", value: "Semanal (Essential) / Mensual (Professional)" },
-            { label: "Soporte", value: "A demanda (email)" },
-            { label: "Onboarding", value: "Sí" },
-            { label: "Puesta en marcha", value: "Kickoff asistido" },
-            { label: "Conversaciones adicionales", value: "Contactar para pack" }
+            { label: "Analyzed conversations / month", value: "Up to 10,800" },
+            { label: "Analysis", value: "Weekly (Essential) / Monthly (Professional)" },
+            { label: "Support", value: "On demand (email)" },
+            { label: "Onboarding", value: "Yes" },
+            { label: "Setup", value: "Assisted kickoff" },
+            { label: "Additional conversations", value: "Contact for pack" }
         ]
     },
     {
         title: "Premium",
         highlight: true,
-        ideal: "Departamentos grandes o agencias",
+        ideal: "Large departments or agencies",
         items: [
-            { label: "Conversaciones analizadas / mes", value: "Hasta 36.000" },
-            { label: "Análisis", value: "Semanal (Professional) / Mensual (Premium)" },
-            { label: "Soporte", value: "Prioritario (email + chat) + onboarding" },
-            { label: "Onboarding", value: "Sí" },
-            { label: "Puesta en marcha", value: "Kickoff avanzado" },
-            { label: "Conversaciones adicionales", value: "Contactar para pack" }
+            { label: "Analyzed conversations / month", value: "Up to 36,000" },
+            { label: "Analysis", value: "Weekly (Professional) / Monthly (Premium)" },
+            { label: "Support", value: "Priority (email + chat) + onboarding" },
+            { label: "Onboarding", value: "Yes" },
+            { label: "Setup", value: "Advanced kickoff" },
+            { label: "Additional conversations", value: "Contact for pack" }
         ]
     },
     {
         title: "Enterprise",
-        ideal: "Grandes corporaciones o necesidades a medida",
+        ideal: "Large corporations or custom needs",
         items: [
-            { label: "Conversaciones analizadas / mes", value: "Personalizado" },
-            { label: "Análisis", value: "Ad hoc" },
-            { label: "Soporte", value: "Dedicado (gestor de cuenta) + SLA" },
-            { label: "Onboarding", value: "Sí" },
-            { label: "Puesta en marcha", value: "Incluida en proyecto" },
-            { label: "Conversaciones adicionales", value: "Incluido / a medida" }
+            { label: "Analyzed conversations / month", value: "Customized" },
+            { label: "Analysis", value: "Ad hoc" },
+            { label: "Support", value: "Dedicated (account manager) + SLA" },
+            { label: "Onboarding", value: "Yes" },
+            { label: "Setup", value: "Included in project" },
+            { label: "Additional conversations", value: "Included / customized" }
         ]
     }
 ];
@@ -77,11 +77,10 @@ export default function PricingPlans() {
                     className="text-4xl md:text-5xl font-medium text-center text-zinc-900 mb-6"
                     style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
                 >
-                    Elige el plan que encaja con tu equipo
+                    Choose the plan that fits your team
                 </h2>
                 <p className="text-center text-zinc-500 max-w-3xl mx-auto mb-14">
-                    Inspirado en nuestras estructuras de servicio: sin mostrar precios, solo la
-                    cobertura y el nivel de acompañamiento para cada perfil de organización.
+                    Inspired by our service structures: no prices shown, just coverage and level of support for each organizational profile.
                 </p>
 
                 <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -104,7 +103,7 @@ export default function PricingPlans() {
                             <div className="p-6 flex-1 flex flex-col gap-4">
                                 {plan.items.map((item) => (
                                     <div key={item.label} className="flex items-start gap-3">
-                                        <CheckIcon active={plan.highlight} />
+                                        <CheckIcon active={!!plan.highlight} />
                                         <div>
                                             <p className="text-xs uppercase tracking-wide text-zinc-500 font-semibold">
                                                 {item.label}
@@ -123,7 +122,7 @@ export default function PricingPlans() {
                                             : "bg-primary text-white hover:bg-primary-hover"
                                     }`}
                                 >
-                                    Hablar con ventas
+                                    Talk to sales
                                 </button>
                             </div>
                         </div>

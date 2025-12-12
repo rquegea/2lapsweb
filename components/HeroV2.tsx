@@ -1,7 +1,10 @@
 "use client";
 import AIResearchSidebar from "@/components/AIResearchSidebar";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function HeroV2() {
+  const { t } = useLanguage();
+
   return (
     <section className="bg-white">
       {/* Headline grande */}
@@ -10,9 +13,9 @@ export default function HeroV2() {
           className="text-4xl md:text-6xl leading-[1.05] tracking-tight text-zinc-900 font-medium"
           style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
         >
-          <span className="block">Make every decision with</span>
+          <span className="block">{t("v2.hero.title1")}</span>
           {/* CAMBIO: Uso de text-primary global */}
-          <span className="block text-primary">the market’s latest intelligence</span>
+          <span className="block text-primary">{t("v2.hero.title2")}</span>
         </h1>
       </div>
 
@@ -25,16 +28,17 @@ export default function HeroV2() {
             <div className="align-left-v2 pt-12 md:pt-16 pb-10 pr-6 md:pr-8 h-full flex items-start">
               <div className="max-w-2xl">
                 <p className="text-base/7 md:text-lg/8 opacity-95">
-                  Streamline your workflow with an enterprise‑grade platform — designed for teams
-                  who need to move quickly and make confident decisions with the freshest market intelligence.
+                  {t("v2.hero.description")}
                 </p>
                 <div className="mt-6 flex items-center gap-4">
                   <a
-                    href="#get-started"
+                    href="https://calendly.com/rodrigo-quesada-trucoytrufa/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     // CAMBIO: Uso de text-primary global
                     className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-primary shadow hover:bg-zinc-50"
                   >
-                    Get started for free <span aria-hidden>→</span>
+                    {t("v2.hero.cta")} <span aria-hidden>→</span>
                   </a>
                 </div>
               </div>

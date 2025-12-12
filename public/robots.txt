@@ -1,0 +1,27 @@
+# 2laps - Conversational Market Intelligence
+User-agent: *
+Allow: /
+
+# AI Crawlers específicos (GEO Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Disallow admin/internal routes si existen
+Disallow: /api/
+Disallow: /_next/static/
+
+# Sitemap
+Sitemap: https://2laps.trucoytrufa.es/sitemap.xml
+

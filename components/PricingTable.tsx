@@ -14,26 +14,26 @@ type Section = {
 
 const SECTIONS: Section[] = [
     {
-        title: "Servicio y soporte",
+        title: "Service and support",
         rows: [
-            { name: "Soporte 24/7", values: { Essential: true, Professional: true, Premium: true, Enterprise: true } },
-            { name: "Account Manager dedicado", values: { Essential: "No incluido", Professional: "Opcional", Premium: true, Enterprise: true } },
-            { name: "Soporte IT", values: { Essential: "No incluido", Professional: "Opcional", Premium: true, Enterprise: true } },
-            { name: "Servicios profesionales", values: { Essential: "No incluido", Professional: "Bajo demanda", Premium: true, Enterprise: true } },
+            { name: "24/7 Support", values: { Essential: true, Professional: true, Premium: true, Enterprise: true } },
+            { name: "Dedicated Account Manager", values: { Essential: "Not included", Professional: "Optional", Premium: true, Enterprise: true } },
+            { name: "IT Support", values: { Essential: "Not included", Professional: "Optional", Premium: true, Enterprise: true } },
+            { name: "Professional services", values: { Essential: "Not included", Professional: "On demand", Premium: true, Enterprise: true } },
         ]
     },
     {
-        title: "Formación",
+        title: "Training",
         rows: [
-            { name: "Formación virtual y presencial", values: { Essential: "No incluido", Professional: true, Premium: true, Enterprise: true } },
-            { name: "Programa de formación a medida", values: { Essential: "No incluido", Professional: "Bajo demanda", Premium: true, Enterprise: true } },
+            { name: "Virtual and in-person training", values: { Essential: "Not included", Professional: true, Premium: true, Enterprise: true } },
+            { name: "Custom training program", values: { Essential: "Not included", Professional: "On demand", Premium: true, Enterprise: true } },
         ]
     },
     {
-        title: "Hosting y seguridad",
+        title: "Hosting and security",
         rows: [
             { name: "SaaS", values: { Essential: true, Professional: true, Premium: true, Enterprise: true } },
-            { name: "Private Cloud", values: { Essential: "No", Professional: "Opcional", Premium: "Opcional", Enterprise: true } },
+            { name: "Private Cloud", values: { Essential: "No", Professional: "Optional", Premium: "Optional", Enterprise: true } },
         ]
     }
 ];
