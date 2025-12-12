@@ -179,7 +179,7 @@ export default function HeaderV2() {
       <div className="container-v2 h-16 md:h-20 flex items-center">
 
         {/* Logo */}
-        <Link href="/v2" className="inline-flex items-center gap-2 mr-auto md:mr-10 z-50 relative">
+        <Link href="/" className="inline-flex items-center gap-2 mr-auto md:mr-10 z-50 relative">
           <span
             className="text-xl md:text-2xl tracking-tight text-zinc-900 font-medium leading-none"
             style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
