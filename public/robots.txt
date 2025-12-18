@@ -25,3 +25,4 @@ Disallow: /_next/static/
 # Sitemap
 Sitemap: https://2laps.trucoytrufa.es/sitemap.xml
 
+

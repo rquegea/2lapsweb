@@ -14,6 +14,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { useLanguage } from "./LanguageProvider";
 
 const monthlyRevenue = [
   { month: "Jan", actual: 120, target: 110, forecast: 128 },
@@ -22,14 +23,6 @@ const monthlyRevenue = [
   { month: "Apr", actual: 128, target: 138, forecast: 142 },
   { month: "May", actual: 172, target: 150, forecast: 168 },
   { month: "Jun", actual: 160, target: 158, forecast: 175 },
-];
-
-const insightSources = [
-  { source: "CRM", insights: 42 },
-  { source: "Tickets", insights: 34 },
-  { source: "Surveys", insights: 27 },
-  { source: "Internal conversations", insights: 53 },
-  { source: "SharePoint", insights: 31 },
 ];
 
 const pipelineKpis = {
@@ -65,46 +58,53 @@ function Metric({ label, value, suffix = "" }: Readonly<{ label: string; value: 
 }
 
 export default function EnterpriseIntelligenceExplainer() {
+  const { t } = useLanguage();
   const [mostrarPrediccion, setMostrarPrediccion] = useState(true);
+
+  const insightSources = [
+    { source: "CRM", insights: 42 },
+    { source: "Tickets", insights: 34 },
+    { source: "Surveys", insights: 27 },
+    { source: t("enterprise.kpis.conversations"), insights: 53 },
+    { source: "SharePoint", insights: 31 },
+  ];
 
   return (
     <div className="container-v2">
       {/* Hero */}
       <section className="pt-20 pb-10 text-center">
         <div className="inline-block px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
-          Enterprise Intelligence
+          {t("enterprise.badge")}
         </div>
         <h1
           className="text-4xl md:text-6xl font-medium text-zinc-900 mb-4"
           style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
         >
-          Explain, don’t just show: internal conversations turned into decisions
+          {t("enterprise.hero.title")}
         </h1>
         <p className="text-zinc-600 text-lg max-w-3xl mx-auto">
-          Bring together conversations, wikis, and internal sheets to uncover patterns, validate
-          hypotheses, and align teams. Below is an illustrative walkthrough with sample data.
+          {t("enterprise.hero.description")}
         </p>
       </section>
 
       {/* Cómo funciona */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
         <div className="p-5 rounded-xl bg-white border border-zinc-100 shadow-sm">
-          <div className="text-sm font-semibold text-zinc-900">1. Ingest</div>
+          <div className="text-sm font-semibold text-zinc-900">{t("enterprise.howItWorks.ingest")}</div>
           <p className="text-sm text-zinc-600 mt-2">
-            Connectors to SharePoint, Google Drive, CRM, and knowledge bases. Secure indexing and
-            granular access controls for conversations.
+            {t("enterprise.howItWorks.ingestDesc")}
           </p>
         </div>
         <div className="p-5 rounded-xl bg-white border border-zinc-100 shadow-sm">
-          <div className="text-sm font-semibold text-zinc-900">2. Understanding</div>
+          <div className="text-sm font-semibold text-zinc-900">{t("enterprise.howItWorks.understanding")}</div>
           <p className="text-sm text-zinc-600 mt-2">
-            Entity, relationship, and metric extraction. Semantic enrichment and disambiguation.
+            {t("enterprise.howItWorks.understandingDesc")}
           </p>
         </div>
         <div className="p-5 rounded-xl bg-white border border-zinc-100 shadow-sm">
-          <div className="text-sm font-semibold text-zinc-900">3. Decision</div>
+          <div className="text-sm font-semibold text-zinc-900">{t("enterprise.howItWorks.decision")}</div>
           <p className="text-sm text-zinc-600 mt-2">
-            Dashboards, alerts, and natural-language answers. Validate sales, research, and performance.
+            {t("enterprise.howItWorks.decisionDesc")}
           </p>
         </div>
       </section>
@@ -112,10 +112,10 @@ export default function EnterpriseIntelligenceExplainer() {
       {/* KPIs del pipeline */}
       <section className="mb-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Metric label="Conversations processed" value={pipelineKpis.conversations} />
-          <Metric label="Entities extracted" value={pipelineKpis.entities} />
-          <Metric label="Relationships detected" value={pipelineKpis.relations} />
-          <Metric label="Actionable insights" value={pipelineKpis.insights} />
+          <Metric label={t("enterprise.kpis.conversations")} value={pipelineKpis.conversations} />
+          <Metric label={t("enterprise.kpis.entities")} value={pipelineKpis.entities} />
+          <Metric label={t("enterprise.kpis.relations")} value={pipelineKpis.relations} />
+          <Metric label={t("enterprise.kpis.insights")} value={pipelineKpis.insights} />
         </div>
       </section>
 
@@ -124,7 +124,7 @@ export default function EnterpriseIntelligenceExplainer() {
         <div className="lg:col-span-2 p-5 rounded-xl bg-white border border-zinc-100 shadow-sm">
           <div className="flex items-center justify-between mb-3">
             <div className="text-sm font-semibold text-zinc-700">
-              Monthly revenue: actual vs target {mostrarPrediccion ? "and forecast" : ""}
+              {t("enterprise.revenue.title")} {mostrarPrediccion ? t("enterprise.revenue.andForecast") : ""}
             </div>
             <label className="inline-flex items-center gap-2 text-sm text-zinc-600">
               <input
@@ -132,9 +132,9 @@ export default function EnterpriseIntelligenceExplainer() {
                 className="rounded border-zinc-300"
                 checked={mostrarPrediccion}
                 onChange={(e) => setMostrarPrediccion(e.target.checked)}
-                aria-label="Show forecast series"
+                aria-label={t("enterprise.revenue.showForecast")}
               />
-              <span>Show forecast</span>
+              <span>{t("enterprise.revenue.showForecast")}</span>
             </label>
           </div>
           <div className="w-full h-[320px]">
@@ -145,25 +145,24 @@ export default function EnterpriseIntelligenceExplainer() {
                 <YAxis tick={{ fontSize: 12 }} />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="actual" name="Actual" stroke="#111827" strokeWidth={2} dot={false} />
-                <Line type="monotone" dataKey="target" name="Target" stroke="#ef4444" strokeDasharray="4 4" />
+                <Line type="monotone" dataKey="actual" name={t("enterprise.revenue.actual")} stroke="#111827" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="target" name={t("enterprise.revenue.target")} stroke="#ef4444" strokeDasharray="4 4" />
                 {mostrarPrediccion && (
-                  <Line type="monotone" dataKey="forecast" name="Forecast" stroke="#3b82f6" />
+                  <Line type="monotone" dataKey="forecast" name={t("enterprise.revenue.forecast")} stroke="#3b82f6" />
                 )}
               </LineChart>
             </ResponsiveContainer>
           </div>
           <p className="text-xs text-zinc-500 mt-3">
-            Illustration: targets come from OKR docs and actuals from finance reports. The forecast is
-            calculated from historical performance.
+            {t("enterprise.revenue.explanation")}
           </p>
         </div>
         <div className="p-5 rounded-xl bg-white border border-zinc-100 shadow-sm">
-          <div className="text-sm font-semibold text-zinc-700 mb-2">What does it deliver?</div>
+          <div className="text-sm font-semibold text-zinc-700 mb-2">{t("enterprise.delivers.title")}</div>
           <ul className="text-sm text-zinc-600 list-disc pl-4 space-y-1">
-            <li>Reconcile numbers across Finance, Sales, and Marketing.</li>
-            <li>Spot deviations versus target in real time.</li>
-            <li>Explain the “why” with references to internal conversations.</li>
+            <li>{t("enterprise.delivers.item1")}</li>
+            <li>{t("enterprise.delivers.item2")}</li>
+            <li>{t("enterprise.delivers.item3")}</li>
           </ul>
         </div>
       </section>
@@ -172,7 +171,7 @@ export default function EnterpriseIntelligenceExplainer() {
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
         <div className="p-5 rounded-xl bg-white border border-zinc-100 shadow-sm">
           <div className="text-sm font-semibold text-zinc-700 mb-2">
-            Insight origin by source
+            {t("enterprise.insightOrigin")}
           </div>
           <div className="w-full h-[280px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -186,13 +185,12 @@ export default function EnterpriseIntelligenceExplainer() {
             </ResponsiveContainer>
           </div>
           <p className="text-xs text-zinc-500 mt-3">
-            Aggregated example: which repositories yield more useful findings. Optimize where to invest
-            in curating conversations and content.
+            {t("enterprise.insightOriginExplanation")}
           </p>
         </div>
         <div className="lg:col-span-2 p-5 rounded-xl bg-white border border-zinc-100 shadow-sm">
           <div className="text-sm font-semibold text-zinc-700 mb-2">
-            Cumulative: conversations, entities, and insights
+            {t("enterprise.cumulative")}
           </div>
           <div className="w-full h-[280px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -216,15 +214,14 @@ export default function EnterpriseIntelligenceExplainer() {
                 <YAxis tick={{ fontSize: 12 }} />
                 <Tooltip />
                 <Legend />
-                <Area type="monotone" dataKey="conversations" name="Conversations" stroke="#111827" fill="url(#gDocs)" />
-                <Area type="monotone" dataKey="entities" name="Entities" stroke="#3b82f6" fill="url(#gEnt)" />
+                <Area type="monotone" dataKey="conversations" name={t("enterprise.kpis.conversations")} stroke="#111827" fill="url(#gDocs)" />
+                <Area type="monotone" dataKey="entities" name={t("enterprise.kpis.entities")} stroke="#3b82f6" fill="url(#gEnt)" />
                 <Area type="monotone" dataKey="insights" name="Insights" stroke="#ef4444" fill="url(#gIns)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
           <p className="text-xs text-zinc-500 mt-3">
-            Evolution example: as conversations grow, so do entities and relationships — and the
-            resulting business insights.
+            {t("enterprise.cumulativeExplanation")}
           </p>
         </div>
       </section>
@@ -232,22 +229,18 @@ export default function EnterpriseIntelligenceExplainer() {
       {/* Cierre / CTA */}
       <section className="mb-16">
         <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-100 text-center">
-          <h3 className="text-xl font-semibold text-zinc-900">Want to see this with your data?</h3>
+          <h3 className="text-xl font-semibold text-zinc-900">{t("enterprise.cta.title")}</h3>
           <p className="text-zinc-600 mt-1">
-            We activate connectors and tailor ontologies in days, not months.
+            {t("enterprise.cta.description")}
           </p>
           <a
             href="/about/contact"
             className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-[15px] font-semibold text-white mt-4 hover:bg-primary-hover active:scale-95"
           >
-            Request a demo
+            {t("enterprise.cta.button")}
           </a>
         </div>
       </section>
     </div>
   );
 }
-
-
-
-

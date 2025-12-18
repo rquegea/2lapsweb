@@ -1,4 +1,5 @@
 "use client";
+import { useLanguage } from "./LanguageProvider";
 
 interface Brand {
     name: string;
@@ -10,7 +11,9 @@ interface SolutionsTrustedProps {
     brands: Brand[];
 }
 
-export default function SolutionsTrusted({ title = "Trusted by industry leaders", brands }: SolutionsTrustedProps) {
+export default function SolutionsTrusted({ title, brands }: SolutionsTrustedProps) {
+    const { t } = useLanguage();
+    const displayTitle = title || t("solutions.trusted.title");
     return (
         <section className="bg-white border-b border-zinc-100">
             <div className="container-v2 py-16 text-center">
@@ -18,7 +21,7 @@ export default function SolutionsTrusted({ title = "Trusted by industry leaders"
                     className="text-xl md:text-2xl font-medium text-zinc-900 mb-12"
                     style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
                 >
-                    {title}
+                    {displayTitle}
                 </h3>
 
                 <div className="flex flex-wrap justify-center items-center gap-x-12 md:gap-x-20 gap-y-10">

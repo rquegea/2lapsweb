@@ -8,47 +8,41 @@ import PanelPredictive from "./feature-panels/PanelPredictive";
 import PanelReporting from "./feature-panels/PanelReporting";
 import PanelBenchmark from "./feature-panels/PanelBenchmark";
 import { useRef } from "react";
-
-const FEATURES = [
-    {
-        id: "market-intelligence",
-        title: "Market Intelligence",
-        subtitle: "Vision general del mercado en tiempo real",
-        description:
-            "Get a complete view of your market with real-time data aggregation. We track competitors, pricing strategies, and consumer sentiment so you don't have to.",
-        image: "/images/feature-1.png",
-        thumb: "/features/feature-1.png",
-    },
-    {
-        id: "predictive-analytics",
-        title: "Predictive Analytics",
-        subtitle: "Pronósticos y tendencias impulsadas por IA",
-        description:
-            "Stop guessing. Our AI models forecast trends and demand shifts, allowing you to allocate resources efficiently and stay ahead of the curve.",
-        image: "/images/feature-2.png",
-        thumb: "/features/feature-2.png",
-    },
-    {
-        id: "automated-reporting",
-        title: "Automated Reporting",
-        subtitle: "Informes automáticos listos para compartir",
-        description:
-            "Save hours every week. Generate beautiful, insightful reports with a single click and share them instantly with your stakeholders.",
-        image: "/images/feature-3.png",
-        thumb: "/features/feature-4.png",
-    },
-    {
-        id: "competitor-benchmarking",
-        title: "Competitor Benchmarking",
-        subtitle: "Comparativas frente a la competencia",
-        description:
-            "See exactly how you stack up against the competition. Compare KPIs, market share, and growth metrics in a unified dashboard.",
-        image: "/images/feature-4.png",
-        thumb: "/features/feature-6.png",
-    },
-];
+import { useLanguage } from "./LanguageProvider";
 
 export default function FeatureScroll() {
+    const { t } = useLanguage();
+    
+    const FEATURES = [
+        {
+            id: "market-intelligence",
+            titleKey: "featureScroll.market.title",
+            descKey: "featureScroll.market.desc",
+            image: "/images/feature-1.png",
+            thumb: "/features/feature-1.png",
+        },
+        {
+            id: "predictive-analytics",
+            titleKey: "featureScroll.predictive.title",
+            descKey: "featureScroll.predictive.desc",
+            image: "/images/feature-2.png",
+            thumb: "/features/feature-2.png",
+        },
+        {
+            id: "automated-reporting",
+            titleKey: "featureScroll.reporting.title",
+            descKey: "featureScroll.reporting.desc",
+            image: "/images/feature-3.png",
+            thumb: "/features/feature-4.png",
+        },
+        {
+            id: "competitor-benchmarking",
+            titleKey: "featureScroll.benchmark.title",
+            descKey: "featureScroll.benchmark.desc",
+            image: "/images/feature-4.png",
+            thumb: "/features/feature-6.png",
+        },
+    ];
     const [activeId, setActiveId] = useState(FEATURES[0].id);
     const navRef = useRef<HTMLDivElement | null>(null);
     const isSteppingRef = useRef(false);
@@ -114,7 +108,7 @@ export default function FeatureScroll() {
                 {/* Título de sección para móvil */}
                 <div className="mb-12 lg:hidden">
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-2" style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}>
-                        Features
+                        {t("featureScroll.badge")}
                     </h3>
                 </div>
 
@@ -123,7 +117,7 @@ export default function FeatureScroll() {
                     <div className="hidden lg:block lg:col-span-3">
                         <div ref={navRef} className="sticky top-32">
                             <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-6" style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}>
-                                Features
+                                {t("featureScroll.badge")}
                             </h3>
                             {/* Texto estilo hero + indicador vertical (sin card) */}
                             {(() => {
@@ -164,10 +158,10 @@ export default function FeatureScroll() {
                                                     className="text-4xl md:text-5xl font-semibold text-zinc-900 leading-tight"
                                                     style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
                                                 >
-                                                    {current.title}
+                                                    {t(current.titleKey)}
                                                 </h2>
                                                 <p className="mt-4 text-zinc-700 text-lg max-w-xl">
-                                                    {current.description}
+                                                    {t(current.descKey)}
                                                 </p>
                                             </div>
                                         </motion.button>
@@ -195,10 +189,10 @@ export default function FeatureScroll() {
                                         className="text-3xl md:text-4xl font-semibold text-zinc-900 leading-tight"
                                         style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
                                     >
-                                        {feature.title}
+                                        {t(feature.titleKey)}
                                     </h3>
                                     <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
-                                        {feature.description}
+                                        {t(feature.descKey)}
                                     </p>
                                     {/* Panel preview para móvil con fondo oscuro */}
                                     <div className="mt-8 bg-[#0F172A] rounded-xl p-6 md:p-8">

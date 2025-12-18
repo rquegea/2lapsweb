@@ -49,7 +49,7 @@ export const metadata: Metadata = {
       "AI-powered market intelligence platform for real-time competitive analysis, sentiment tracking, and strategic decision-making.",
     images: [
       {
-        url: `${baseUrl}/icons/@2laps-logo.png`,
+        url: `${baseUrl}/logos/2lapslogoletras.png`,
         width: 1200,
         height: 630,
         alt: "2laps - Conversational Market Intelligence",
@@ -61,20 +61,15 @@ export const metadata: Metadata = {
     title: "2laps — Conversational Market Intelligence",
     description:
       "AI-powered market intelligence platform for real-time competitive analysis and strategic decision-making.",
-    images: [`${baseUrl}/icons/@2laps-logo.png`],
+    images: [`${baseUrl}/logos/2lapslogoletras.png`],
   },
   alternates: {
     canonical: baseUrl,
   },
   icons: {
-    icon: [
-      { url: "/icons/@2laps-logo.png?v=3", type: "image/png", sizes: "16x16" },
-      { url: "/icons/@2laps-logo.png?v=3", type: "image/png", sizes: "32x32" },
-      { url: "/icons/@2laps-logo.png?v=3", type: "image/png", sizes: "48x48" },
-      { url: "/icons/@2laps-logo.png?v=3", type: "image/png", sizes: "96x96" },
-    ],
-    apple: "/icons/@2laps-logo.png?v=3",
-    shortcut: "/icons/@2laps-logo.png?v=3",
+    icon: "/logos/2LAPSFAVICON.png",
+    apple: "/logos/2LAPSFAVICON.png",
+    shortcut: "/logos/2LAPSFAVICON.png",
     other: [
       { rel: "mask-icon", url: "/logo-twolaps.svg?v=2", color: "#111111" },
     ],
@@ -93,7 +88,7 @@ export default function RootLayout({
     name: "2laps",
     legalName: "2laps - Conversational Market Intelligence",
     url: baseUrl,
-    logo: `${baseUrl}/icons/@2laps-logo.png`,
+    logo: `${baseUrl}/logos/2lapslogoletras.png`,
     description:
       "Multi-agent AI platform for market analysis, competitive intelligence, and action-ready advisory reports",
     address: {
@@ -117,7 +112,7 @@ export default function RootLayout({
     "@type": "LocalBusiness",
     "@id": `${baseUrl}#organization`,
     name: "2laps",
-    image: `${baseUrl}/icons/@2laps-logo.png`,
+    image: `${baseUrl}/logos/2lapslogoletras.png`,
     url: baseUrl,
     telephone: "",
     email: "trucoytrufa@trucoytrufa.es",
@@ -212,22 +207,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
         />
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,800&display=swap"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,700&display=swap"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap"
-        />
         {/* Fallback explícito para algunos navegadores */}
-        <link rel="icon" href="/icons/@2laps-logo.png?v=3" sizes="16x16" type="image/png" />
-        <link rel="icon" href="/icons/@2laps-logo.png?v=3" sizes="32x32" type="image/png" />
-        <link rel="apple-touch-icon" href="/icons/@2laps-logo.png?v=3" />
+        <link rel="icon" href="/logos/2LAPSFAVICON.png" sizes="any" />
+        <link rel="apple-touch-icon" href="/logos/2LAPSFAVICON.png" />
         <link rel="mask-icon" href="/logo-twolaps.svg?v=2" color="#111111" />
       </head>
       <body className="antialiased">

@@ -180,12 +180,7 @@ export default function HeaderV2() {
 
         {/* Logo */}
         <Link href="/" className="inline-flex items-center gap-2 mr-auto md:mr-10 z-50 relative">
-          <span
-            className="text-xl md:text-2xl tracking-tight text-zinc-900 font-medium leading-none"
-            style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
-          >
-            2laps
-          </span>
+          <img src="/logos/2lapslogoletras.png" alt="2laps" className="h-8 md:h-10 w-auto" />
         </Link>
 
         {/* Nav Desktop */}
@@ -250,7 +245,7 @@ export default function HeaderV2() {
           <LanguageSwitcher />
 
           <div className="hidden md:flex items-center gap-4">
-            <a href="https://platform.2laps.io" className="text-[15px] font-medium text-zinc-600 hover:text-zinc-900">
+            <a href="https://platform.trucoytrufa.es" className="text-[15px] font-medium text-zinc-600 hover:text-zinc-900">
               {t("v2.nav.login")}
             </a>
             <a
@@ -323,7 +318,7 @@ export default function HeaderV2() {
               ))}
               <div className="pt-4 space-y-3 border-t border-zinc-100">
                 <a
-                  href="https://platform.2laps.io"
+                  href="https://platform.trucoytrufa.es"
                   className="block text-sm font-medium text-zinc-600 hover:text-zinc-900"
                 >
                   {t("v2.nav.login")}
@@ -390,7 +385,7 @@ function SearchOverlay({
   onSelect: (href: string) => void;
 }>) {
   const { t } = useLanguage();
-  
+
   return (
     <AnimatePresence>
       {isOpen && (

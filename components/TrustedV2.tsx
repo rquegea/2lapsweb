@@ -6,8 +6,8 @@ import { useLanguage } from "@/components/LanguageProvider";
 const BRANDS = [
   { name: "Moët & Chandon", logo: "/logos/moet.png" },
   { name: "Ruinart", logo: "/logos/ruinart.png" },
-  { name: "Veuve Clicquot", logo: "/logos/veuve-clicquot.png" },
-  { name: "Dom Pérignon", logo: "/logos/dom-perignon.svg" },
+  { name: "Veuve Clicquot", logo: "/logos/veuve-clicquot-logo.jpg" },
+  { name: "Dom Pérignon", logo: "/logos/dom-perignon.png" },
   { name: "Planeta Formación y Universidades", logo: "/logos/planeta.png" },
   { name: "VIU", logo: "/logos/viu.png" },
   { name: "The Core School", logo: "/logos/the-core.png" },

@@ -18,14 +18,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/70">
       <div className="mx-auto max-w-6xl px-6 py-4 grid grid-cols-[1fr_auto_1fr] items-center">
         <Link href="#" className="flex items-center gap-2 justify-self-start">
-          <img src="/icons/@2laps-logo.png" alt="2laps" className="h-6 w-auto" />
-          <span className="text-zinc-900 text-base font-medium leading-none">2laps</span>
-          <span
-            className="ml-2 text-sm italic font-light text-zinc-800"
-            style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui' }}
-          >
-            by T&T
-          </span>
+          <img src="/logos/2lapslogoletras.png" alt="2laps" className="h-6 w-auto" />
         </Link>
         <nav className="hidden md:flex justify-center gap-16 text-sm justify-self-center">
           {NAV.map((item) => (

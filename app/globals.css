@@ -190,6 +190,10 @@ body {
   transform: translateY(-1px);
 }
 
+@tailwind utilities;
+
+@layer utilities {}
+
 /* Multi-line clamp utilities (sin plugin) */
 .clamp-2 {
   display: -webkit-box;

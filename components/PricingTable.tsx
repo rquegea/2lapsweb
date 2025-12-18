@@ -1,46 +1,42 @@
 "use client";
 import { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { useLanguage } from "./LanguageProvider";
 
 const PLANS = ["Essential", "Professional", "Premium", "Enterprise"] as const;
 
 type PlanKey = (typeof PLANS)[number];
 type RowValue = boolean | string;
 
-type Section = {
-    title: string;
-    rows: { name: string; values: Record<PlanKey, RowValue> }[];
-};
-
-const SECTIONS: Section[] = [
-    {
-        title: "Service and support",
-        rows: [
-            { name: "24/7 Support", values: { Essential: true, Professional: true, Premium: true, Enterprise: true } },
-            { name: "Dedicated Account Manager", values: { Essential: "Not included", Professional: "Optional", Premium: true, Enterprise: true } },
-            { name: "IT Support", values: { Essential: "Not included", Professional: "Optional", Premium: true, Enterprise: true } },
-            { name: "Professional services", values: { Essential: "Not included", Professional: "On demand", Premium: true, Enterprise: true } },
-        ]
-    },
-    {
-        title: "Training",
-        rows: [
-            { name: "Virtual and in-person training", values: { Essential: "Not included", Professional: true, Premium: true, Enterprise: true } },
-            { name: "Custom training program", values: { Essential: "Not included", Professional: "On demand", Premium: true, Enterprise: true } },
-        ]
-    },
-    {
-        title: "Hosting and security",
-        rows: [
-            { name: "SaaS", values: { Essential: true, Professional: true, Premium: true, Enterprise: true } },
-            { name: "Private Cloud", values: { Essential: "No", Professional: "Optional", Premium: "Optional", Enterprise: true } },
-        ]
-    }
-];
-
 export default function PricingTable() {
-    // State to manage open/closed sections, defaulting to all open
+    const { t } = useLanguage();
     const [openSections, setOpenSections] = useState<number[]>([0, 1, 2]);
+
+    const SECTIONS = [
+        {
+            titleKey: "pricing.table.serviceSupport",
+            rows: [
+                { nameKey: "pricing.table.support247", values: { Essential: true, Professional: true, Premium: true, Enterprise: true } },
+                { nameKey: "pricing.table.accountManager", values: { Essential: t("pricing.table.notIncluded"), Professional: t("pricing.table.optional"), Premium: true, Enterprise: true } },
+                { nameKey: "pricing.table.itSupport", values: { Essential: t("pricing.table.notIncluded"), Professional: t("pricing.table.optional"), Premium: true, Enterprise: true } },
+                { nameKey: "pricing.table.professionalServices", values: { Essential: t("pricing.table.notIncluded"), Professional: t("pricing.plans.onDemand"), Premium: true, Enterprise: true } },
+            ]
+        },
+        {
+            titleKey: "pricing.table.training",
+            rows: [
+                { nameKey: "pricing.table.virtualTraining", values: { Essential: t("pricing.table.notIncluded"), Professional: true, Premium: true, Enterprise: true } },
+                { nameKey: "pricing.table.customTraining", values: { Essential: t("pricing.table.notIncluded"), Professional: t("pricing.plans.onDemand"), Premium: true, Enterprise: true } },
+            ]
+        },
+        {
+            titleKey: "pricing.table.hostingSecurity",
+            rows: [
+                { nameKey: "pricing.table.saas", values: { Essential: true, Professional: true, Premium: true, Enterprise: true } },
+                { nameKey: "pricing.table.privateCloud", values: { Essential: t("pricing.table.no"), Professional: t("pricing.table.optional"), Premium: t("pricing.table.optional"), Enterprise: true } },
+            ]
+        }
+    ];
 
     const toggleSection = (index: number) => {
         if (openSections.includes(index)) {
@@ -64,7 +60,7 @@ export default function PricingTable() {
                                 idx === 2 || idx === 3 ? "text-primary" : "text-zinc-900"
                             }`}
                         >
-                            {plan}
+                            {t(`pricing.plans.${plan.toLowerCase()}`)}
                         </div>
                     ))}
                 </div>
@@ -72,22 +68,20 @@ export default function PricingTable() {
                 {/* Sections */}
                 <div className="space-y-8">
                     {SECTIONS.map((section, index) => (
-                        <div key={section.title} className="border-b border-zinc-100 pb-8">
+                        <div key={section.titleKey} className="border-b border-zinc-100 pb-8">
                             <button
                                 onClick={() => toggleSection(index)}
                                 className="w-full flex items-center justify-between md:justify-start gap-4 mb-6 group"
                             >
-                                <h3 className="text-2xl font-bold text-zinc-900">{section.title}</h3>
+                                <h3 className="text-2xl font-bold text-zinc-900">{t(section.titleKey)}</h3>
                                 <ChevronDownIcon className={`w-5 h-5 text-zinc-400 transition-transform ${openSections.includes(index) ? "rotate-180" : ""}`} />
-
-                                {/* Mobile Headers inline if needed, but usually hidden */}
                             </button>
 
                             {openSections.includes(index) && (
                                 <div className="space-y-4">
                                     {section.rows.map((row) => (
-                                        <div key={row.name} className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-2">
-                                            <div className="col-span-4 text-sm font-medium text-zinc-700">{row.name}</div>
+                                        <div key={row.nameKey} className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center py-2">
+                                            <div className="col-span-4 text-sm font-medium text-zinc-700">{t(row.nameKey)}</div>
 
                                             {PLANS.map((plan, idx) => {
                                                 const value = row.values[plan];
@@ -96,7 +90,7 @@ export default function PricingTable() {
                                                 return (
                                                     <div key={plan} className="col-span-2 flex justify-between md:justify-center items-center">
                                                         <span className={`md:hidden text-xs uppercase mr-2 ${isPrimary ? "text-primary" : "text-zinc-400"}`}>
-                                                            {plan}:
+                                                            {t(`pricing.plans.${plan.toLowerCase()}`)}:
                                                         </span>
                                                         {isCheck ? (
                                                             <svg

@@ -8,9 +8,11 @@ import SourcesV2 from "@/components/SourcesV2";
 import NewReleaseV2 from "@/components/NewReleaseV2";
 import CtaSectionV2 from "@/components/CtaSectionV2";
 import FooterV2 from "@/components/FooterV2";
+import { useLanguage } from "@/components/LanguageProvider";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+  const { t } = useLanguage();
   const [showSplash, setShowSplash] = useState(true);
   const [hideSplash, setHideSplash] = useState(false);
   const [revealUnderline, setRevealUnderline] = useState(false);
@@ -44,9 +46,9 @@ export default function Home() {
             className="text-2xl md:text-4xl text-zinc-900 font-medium"
             style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
           >
-            <span>Understand</span> the{" "}
+            <span>{t("splash.understand")}</span>{" "}
             <span className="relative inline-block">
-              <span>market</span>
+              <span>{t("splash.theMarket")}</span>
               {/* CAMBIO: Uso de bg-primary global */}
               <span
                 className={`absolute left-0 -bottom-1 h-[3px] bg-primary transition-all duration-300 ${revealUnderline ? "w-full" : "w-0"
@@ -54,7 +56,7 @@ export default function Home() {
                 aria-hidden="true"
               />
             </span>{" "}
-            before anyone else.
+            {t("splash.beforeAnyone")}
           </div>
         </div>
       )}

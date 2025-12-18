@@ -23,3 +23,4 @@ export default function EducationLayout({
   return <>{children}</>;
 }
 
+

@@ -1,62 +1,5 @@
 "use client";
-
-type Plan = {
-    title: string;
-    highlight?: boolean;
-    ideal: string;
-    items: { label: string; value: string }[];
-};
-
-const plans: Plan[] = [
-    {
-        title: "Essential",
-        ideal: "Basic monitoring for small teams",
-        items: [
-            { label: "Analyzed conversations / month", value: "Up to 3,600" },
-            { label: "Analysis", value: "Weekly (Essential) / Monthly (Essential)" },
-            { label: "Support", value: "Initial (email)" },
-            { label: "Setup", value: "Guided kickoff" },
-            { label: "Additional conversations", value: "Contact for pack" }
-        ]
-    },
-    {
-        title: "Professional",
-        ideal: "Marketing and strategy teams",
-        items: [
-            { label: "Analyzed conversations / month", value: "Up to 10,800" },
-            { label: "Analysis", value: "Weekly (Essential) / Monthly (Professional)" },
-            { label: "Support", value: "On demand (email)" },
-            { label: "Onboarding", value: "Yes" },
-            { label: "Setup", value: "Assisted kickoff" },
-            { label: "Additional conversations", value: "Contact for pack" }
-        ]
-    },
-    {
-        title: "Premium",
-        highlight: true,
-        ideal: "Large departments or agencies",
-        items: [
-            { label: "Analyzed conversations / month", value: "Up to 36,000" },
-            { label: "Analysis", value: "Weekly (Professional) / Monthly (Premium)" },
-            { label: "Support", value: "Priority (email + chat) + onboarding" },
-            { label: "Onboarding", value: "Yes" },
-            { label: "Setup", value: "Advanced kickoff" },
-            { label: "Additional conversations", value: "Contact for pack" }
-        ]
-    },
-    {
-        title: "Enterprise",
-        ideal: "Large corporations or custom needs",
-        items: [
-            { label: "Analyzed conversations / month", value: "Customized" },
-            { label: "Analysis", value: "Ad hoc" },
-            { label: "Support", value: "Dedicated (account manager) + SLA" },
-            { label: "Onboarding", value: "Yes" },
-            { label: "Setup", value: "Included in project" },
-            { label: "Additional conversations", value: "Included / customized" }
-        ]
-    }
-];
+import { useLanguage } from "./LanguageProvider";
 
 const CheckIcon = ({ active }: { active: boolean }) => (
     <svg
@@ -70,6 +13,59 @@ const CheckIcon = ({ active }: { active: boolean }) => (
 );
 
 export default function PricingPlans() {
+    const { t } = useLanguage();
+
+    const plans = [
+        {
+            titleKey: "pricing.plans.essential",
+            idealKey: "pricing.plans.essential.ideal",
+            items: [
+                { labelKey: "pricing.plans.conversations", valueKey: "pricing.plans.upTo", valueExtra: " 3,600" },
+                { labelKey: "pricing.plans.analysis", valueKey: "pricing.plans.weekly", valueExtra: ` (Essential) / ${t("pricing.plans.monthly")} (Essential)` },
+                { labelKey: "pricing.plans.support", valueKey: "pricing.plans.initial" },
+                { labelKey: "pricing.plans.setup", valueKey: "pricing.plans.guidedKickoff" },
+                { labelKey: "pricing.plans.additionalConversations", valueKey: "pricing.plans.contactForPack" }
+            ]
+        },
+        {
+            titleKey: "pricing.plans.professional",
+            idealKey: "pricing.plans.professional.ideal",
+            items: [
+                { labelKey: "pricing.plans.conversations", valueKey: "pricing.plans.upTo", valueExtra: " 10,800" },
+                { labelKey: "pricing.plans.analysis", valueKey: "pricing.plans.weekly", valueExtra: ` (Essential) / ${t("pricing.plans.monthly")} (Professional)` },
+                { labelKey: "pricing.plans.support", valueKey: "pricing.plans.onDemand" },
+                { labelKey: "pricing.plans.onboarding", valueKey: "pricing.plans.yes" },
+                { labelKey: "pricing.plans.setup", valueKey: "pricing.plans.assistedKickoff" },
+                { labelKey: "pricing.plans.additionalConversations", valueKey: "pricing.plans.contactForPack" }
+            ]
+        },
+        {
+            titleKey: "pricing.plans.premium",
+            highlight: true,
+            idealKey: "pricing.plans.premium.ideal",
+            items: [
+                { labelKey: "pricing.plans.conversations", valueKey: "pricing.plans.upTo", valueExtra: " 36,000" },
+                { labelKey: "pricing.plans.analysis", valueKey: "pricing.plans.weekly", valueExtra: ` (Professional) / ${t("pricing.plans.monthly")} (Premium)` },
+                { labelKey: "pricing.plans.support", valueKey: "pricing.plans.priority" },
+                { labelKey: "pricing.plans.onboarding", valueKey: "pricing.plans.yes" },
+                { labelKey: "pricing.plans.setup", valueKey: "pricing.plans.advancedKickoff" },
+                { labelKey: "pricing.plans.additionalConversations", valueKey: "pricing.plans.contactForPack" }
+            ]
+        },
+        {
+            titleKey: "pricing.plans.enterprise",
+            idealKey: "pricing.plans.enterprise.ideal",
+            items: [
+                { labelKey: "pricing.plans.conversations", valueKey: "pricing.plans.customized" },
+                { labelKey: "pricing.plans.analysis", valueKey: "pricing.plans.adHoc" },
+                { labelKey: "pricing.plans.support", valueKey: "pricing.plans.dedicated" },
+                { labelKey: "pricing.plans.onboarding", valueKey: "pricing.plans.yes" },
+                { labelKey: "pricing.plans.setup", valueKey: "pricing.plans.includedInProject" },
+                { labelKey: "pricing.plans.additionalConversations", valueKey: "pricing.plans.includedCustomized" }
+            ]
+        }
+    ];
+
     return (
         <section className="py-24 bg-white">
             <div className="container-v2">
@@ -77,16 +73,16 @@ export default function PricingPlans() {
                     className="text-4xl md:text-5xl font-medium text-center text-zinc-900 mb-6"
                     style={{ fontFamily: '"Switzer", ui-sans-serif, system-ui' }}
                 >
-                    Choose the plan that fits your team
+                    {t("pricing.plans.title")}
                 </h2>
                 <p className="text-center text-zinc-500 max-w-3xl mx-auto mb-14">
-                    Inspired by our service structures: no prices shown, just coverage and level of support for each organizational profile.
+                    {t("pricing.plans.description")}
                 </p>
 
                 <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
                     {plans.map((plan) => (
                         <div
-                            key={plan.title}
+                            key={plan.titleKey}
                             className={`border rounded-2xl overflow-hidden flex flex-col h-full ${
                                 plan.highlight ? "border-primary shadow-xl shadow-primary/10" : "border-zinc-200"
                             }`}
@@ -96,19 +92,21 @@ export default function PricingPlans() {
                                     plan.highlight ? "bg-primary text-white" : "bg-[#0A0F1F] text-white"
                                 }`}
                             >
-                                <h3 className="text-2xl font-bold">{plan.title}</h3>
-                                <p className="text-sm mt-2 opacity-80">{plan.ideal}</p>
+                                <h3 className="text-2xl font-bold">{t(plan.titleKey)}</h3>
+                                <p className="text-sm mt-2 opacity-80">{t(plan.idealKey)}</p>
                             </div>
 
                             <div className="p-6 flex-1 flex flex-col gap-4">
                                 {plan.items.map((item) => (
-                                    <div key={item.label} className="flex items-start gap-3">
+                                    <div key={item.labelKey} className="flex items-start gap-3">
                                         <CheckIcon active={!!plan.highlight} />
                                         <div>
                                             <p className="text-xs uppercase tracking-wide text-zinc-500 font-semibold">
-                                                {item.label}
+                                                {t(item.labelKey)}
                                             </p>
-                                            <p className="text-sm text-zinc-800 leading-snug">{item.value}</p>
+                                            <p className="text-sm text-zinc-800 leading-snug">
+                                                {t(item.valueKey)}{item.valueExtra || ""}
+                                            </p>
                                         </div>
                                     </div>
                                 ))}
@@ -122,7 +120,7 @@ export default function PricingPlans() {
                                             : "bg-primary text-white hover:bg-primary-hover"
                                     }`}
                                 >
-                                    Talk to sales
+                                    {t("pricing.plans.talkToSales")}
                                 </button>
                             </div>
                         </div>

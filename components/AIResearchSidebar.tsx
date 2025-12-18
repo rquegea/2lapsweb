@@ -12,16 +12,19 @@ import {
     Globe,
     Database
 } from "lucide-react";
+import { useLanguage } from "./LanguageProvider";
 
 export default function AIResearchSidebar() {
+    const { t } = useLanguage();
     const [phase, setPhase] = useState<"input" | "thinking" | "result">("input");
     const [thinkingStep, setThinkingStep] = useState(0);
     const [searchTerm, setSearchTerm] = useState("");
+    
     const interestingFacts = [
-        "conversation spikes +35% after competitor campaign",
-        "net sentiment tone +12% in 48h (positive mentions)",
-        "highest traction channels: TikTok and X (SOV 62%)",
-        "search queries about your brand +18% week over week",
+        t("aiSidebar.fact1"),
+        t("aiSidebar.fact2"),
+        t("aiSidebar.fact3"),
+        t("aiSidebar.fact4"),
     ];
 
     // Loop sequence
@@ -67,7 +70,7 @@ export default function AIResearchSidebar() {
                         <div className="p-1.5 bg-blue-50 rounded-lg">
                             <Sparkles className="w-4 h-4 text-blue-600" />
                         </div>
-                        <h2 className="text-sm font-semibold text-slate-800">Deep Dive</h2>
+                        <h2 className="text-sm font-semibold text-slate-800">{t("aiSidebar.deepDive")}</h2>
                     </div>
 
                     {/* Petición original (permanece y se atenúa en gris al avanzar) */}
@@ -78,10 +81,10 @@ export default function AIResearchSidebar() {
                         transition={{ duration: 0.7, ease: "easeInOut" }}
                     >
                         <p className="text-slate-500 text-sm font-medium">
-                            {phase === "input" ? "Interpreting your request" : "Query"}
+                            {phase === "input" ? t("aiSidebar.interpretingRequest") : t("aiSidebar.query")}
                         </p>
                         <p className={`text-lg font-medium mt-1 leading-tight ${phase === "input" ? "text-slate-900" : "text-slate-400"}`}>
-                            "Analyze the sentiment trend for my brand based on my competitor's campaign"
+                            "{t("aiSidebar.sampleQuery")}"
                         </p>
                     </motion.div>
 
@@ -97,7 +100,7 @@ export default function AIResearchSidebar() {
                                 className="mt-3"
                             >
                                 <p className="text-slate-500 text-sm font-medium">
-                                    Processing request... searching for interesting signals
+                                    {t("aiSidebar.processing")}
                                 </p>
                                 <div className="h-6 w-3/4 bg-slate-100 rounded mt-2 animate-pulse" />
                             </motion.div>
@@ -120,7 +123,7 @@ export default function AIResearchSidebar() {
                                 <div className="p-6 h-full flex flex-col min-h-0">
                                 <div className="flex items-center justify-between mb-4">
                                         <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                                            Thinking Process
+                                            {t("aiSidebar.thinkingProcess")}
                                         </span>
                                         <motion.div
                                             /* Haz que el círculo rote siempre que no estemos en resultado */
@@ -132,10 +135,10 @@ export default function AIResearchSidebar() {
                                     </div>
 
                                     <div className="space-y-3 overflow-auto pr-1">
-                                        <ThinkingStep text="Analyzing brand sentiment and conversation trend..." isVisible={true} isCompleted={thinkingStep > 0} />
-                                        <ThinkingStep text="Reviewing competitor campaigns and market response..." isVisible={thinkingStep >= 1} isCompleted={thinkingStep > 1} />
-                                        <ThinkingStep text="Cross-checking recent trends and search volume..." isVisible={thinkingStep >= 2} isCompleted={thinkingStep > 2} />
-                                        <ThinkingStep text="Synthesizing actionable insights and predictions..." isVisible={thinkingStep >= 3} isCompleted={false} />
+                                        <ThinkingStep text={t("aiSidebar.step1")} isVisible={true} isCompleted={thinkingStep > 0} />
+                                        <ThinkingStep text={t("aiSidebar.step2")} isVisible={thinkingStep >= 1} isCompleted={thinkingStep > 1} />
+                                        <ThinkingStep text={t("aiSidebar.step3")} isVisible={thinkingStep >= 2} isCompleted={thinkingStep > 2} />
+                                        <ThinkingStep text={t("aiSidebar.step4")} isVisible={thinkingStep >= 3} isCompleted={false} />
                                     </div>
 
                                     {phase === "thinking" && thinkingStep >= 1 && (
@@ -147,7 +150,7 @@ export default function AIResearchSidebar() {
                                             transition={{ duration: 0.6, ease: "easeInOut" }}
                                             className="mt-4 text-xs text-slate-600 italic"
                                         >
-                                            Interesting findings: {interestingFacts[Math.min(thinkingStep - 1, interestingFacts.length - 1)]}.
+                                            {t("aiSidebar.interestingFindings")}: {interestingFacts[Math.min(thinkingStep - 1, interestingFacts.length - 1)]}.
                                         </motion.div>
                                     )}
                                 </div>
@@ -167,7 +170,7 @@ export default function AIResearchSidebar() {
                                     <div className="flex items-center justify-between mb-4">
                                         <div className="flex items-center gap-2">
                                             <div className="w-2 h-2 rounded-full bg-green-500" />
-                                            <span className="text-sm font-medium text-slate-600">Analysis complete</span>
+                                            <span className="text-sm font-medium text-slate-600">{t("aiSidebar.analysisComplete")}</span>
                                         </div>
                                         <span className="text-xs text-slate-400">0.8s</span>
                                     </div>
@@ -175,9 +178,9 @@ export default function AIResearchSidebar() {
                                     <div className="p-4 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50/50 border border-blue-100 shadow-sm">
                                         <div className="flex items-start justify-between mb-3">
                                             <div>
-                                                <h3 className="text-blue-900 font-semibold text-base mb-1">Generative search results</h3>
+                                                <h3 className="text-blue-900 font-semibold text-base mb-1">{t("aiSidebar.generativeResults")}</h3>
                                                 <p className="text-blue-700/80 text-sm">
-                                                    Market sentiment is moderately optimistic; signals of +15% intent in AI infrastructure.
+                                                    {t("aiSidebar.resultDescription")}
                                                 </p>
                                             </div>
                                             <div className="p-2 bg-white rounded-lg shadow-sm">
@@ -192,7 +195,7 @@ export default function AIResearchSidebar() {
                                                 type="text"
                                                 value={searchTerm}
                                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                                placeholder="Buscar en resultados generativos..."
+                                                placeholder={t("aiSidebar.searchPlaceholder")}
                                                 className="w-full bg-transparent text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none"
                                             />
                                         </div>
@@ -200,7 +203,7 @@ export default function AIResearchSidebar() {
                                         {/* Sentiment / SOV Graph (tamaño bloqueado) */}
                                         <div className="mt-4 bg-white/60 rounded-lg p-3 border border-blue-100/50 overflow-hidden">
                                             <div className="flex justify-between items-center mb-2">
-                                                <span className="text-xs font-semibold text-blue-800 uppercase">Market Sentiment</span>
+                                                <span className="text-xs font-semibold text-blue-800 uppercase">{t("aiSidebar.marketSentiment")}</span>
                                                 <span className="text-xs font-bold text-green-600">+12.4%</span>
                                             </div>
                                             <div className="flex items-end gap-1 h-[48px] min-h-[48px] max-h-[48px] w-full overflow-hidden">
