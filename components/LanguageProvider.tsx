@@ -872,10 +872,16 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
 
     // Case Studies Page
     "caseStudies.title": "Case Studies",
-    "caseStudies.description": "See how leading organizations use 2laps to drive growth.",
-    "caseStudies.example.title": "How Company X increased revenue by 20% using 2laps",
-    "caseStudies.example.quote": "2laps has completely transformed our market research workflow. We can now identify trends weeks before our competitors.",
-    "caseStudies.readStory": "Read Story",
+    "caseStudies.description": "Discover how leading organizations use 2laps to drive growth.",
+    "caseStudies.example.title": "The Leading Cookie Market Retailer",
+    "caseStudies.example.quote": "Discover how they optimized their market strategy with competitive intelligence.",
+    "caseStudies.readStory": "I want the report",
+    "caseStudies.modal.title": "Get full report",
+    "caseStudies.modal.name": "Name",
+    "caseStudies.modal.company": "Company",
+    "caseStudies.modal.email": "Business Email",
+    "caseStudies.modal.submit": "Request Report",
+    "caseStudies.modal.success": "Request sent! Your email client will open.",
 
     // Webinars Page
     "webinars.title": "Upcoming webinar",
