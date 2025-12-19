@@ -64,7 +64,7 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "features.card3.desc": "Obtén insights de datos profundos y en tiempo real con analítica avanzada de IA para guiar estrategias, decisiones y un crecimiento escalable.",
     "features.card4.title": "Reputación y Sentimiento de Marca",
     "features.card4.desc": "Sigue la reputación de tu marca y el sentimiento del consumidor sobre tu marca, productos y competidores — más allá de las redes sociales.",
-    
+
     "pricing.badge": "PRECIOS",
     "pricing.title": "Planes flexibles que se ajustan a tu presupuesto y escala",
     "pricing.monthly": "Mensual",
@@ -75,7 +75,7 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "pricing.popular": "Popular",
     "pricing.customPrice": "Personalizado",
     "pricing.bundleDiscountsCta": "Ofrecemos descuentos para conjuntos de planes",
-    
+
     "services.card1.title": "Consultoría de Estrategia de IA",
     "services.card1.desc": "Obtén un plan detallado y al grano en base a datos reales de tus clientes para crecer tu negocio.",
     "services.card2.title": "Generación de Contenido",
@@ -95,7 +95,7 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "comparison.description": "Mira cómo nuestra IA supera a la competencia en velocidad.",
     "comparison.left.title": "Otros",
     "comparison.right.title": "2laps",
-    
+
     // Process / Outputs
     "process.badge": "PROCESO",
     "process.title": "Simple y Escalable",
@@ -220,7 +220,7 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "dataOrigins.tabs.description": "Ingestamos fuentes abiertas, medios, redes sociales y tus sistemas internos. Los modelos limpian, normalizan y vinculan entidades para que cada señal llegue contextualizada y lista para decidir.",
     "dataOrigins.tabs.generatedSample": "Muestra generada",
     "dataOrigins.tabs.llmRag": "LLM + RAG",
-    
+
     // Pricing Page
     "pricing.hero.title": "Conecta con nuestro equipo de ventas para precios escalables",
     "pricing.hero.description": "Ofrecemos opciones de suscripción flexibles, desde soluciones empresariales hasta precios por usuario, para ajustarnos a las necesidades de tu organización. Ya seas un equipo pequeño o una operación global, adaptamos nuestros planes para maximizar tu valor.",
@@ -359,9 +359,15 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     // Case Studies Page
     "caseStudies.title": "Casos de Estudio",
     "caseStudies.description": "Descubre cómo organizaciones líderes usan 2laps para impulsar su crecimiento.",
-    "caseStudies.example.title": "Cómo la Empresa X aumentó ingresos un 20% usando 2laps",
-    "caseStudies.example.quote": "2laps ha transformado completamente nuestro flujo de trabajo de investigación de mercado. Ahora podemos identificar tendencias semanas antes que nuestros competidores.",
-    "caseStudies.readStory": "Leer Historia",
+    "caseStudies.example.title": "El Retailer Líder del Mercado de Galletas",
+    "caseStudies.example.quote": "Descubre cómo optimizaron su estrategia de mercado con inteligencia competitiva.",
+    "caseStudies.readStory": "Quiero el informe",
+    "caseStudies.modal.title": "Obtener el informe completo",
+    "caseStudies.modal.name": "Nombre",
+    "caseStudies.modal.company": "Empresa",
+    "caseStudies.modal.email": "Correo corporativo",
+    "caseStudies.modal.submit": "Solicitar informe",
+    "caseStudies.modal.success": "¡Solicitud lista! Se abrirá tu cliente de correo.",
 
     // Webinars Page
     "webinars.title": "Próximo webinar",
@@ -572,7 +578,7 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "features.card3.desc": "Gain deep, real-time data insights with advanced AI analytics to guide smarter strategies, decisions, and scalable business growth.",
     "features.card4.title": "Brand Reputation & Sentiment",
     "features.card4.desc": "Track brand reputation and overall consumer sentiment around your brand, products, and competitors — beyond social media.",
-    
+
     "pricing.badge": "PRICING",
     "pricing.title": "Flexible pricing plans that fit your budget & scale",
     "pricing.monthly": "Monthly",
@@ -583,7 +589,7 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "pricing.popular": "Popular",
     "pricing.customPrice": "Custom",
     "pricing.bundleDiscountsCta": "We offer discounts for plan bundles",
-    
+
     "services.card1.title": "AI Strategy Consulting",
     "services.card1.desc": "Get a detailed, straight-to-the-point plan based on real customer data to grow your business.",
     "services.card2.title": "Content Generation",
@@ -603,7 +609,7 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "comparison.description": "See how our AI outperforms competitors with speed.",
     "comparison.left.title": "Others",
     "comparison.right.title": "2laps",
-    
+
     // Process / Outputs
     "process.badge": "PROCESS",
     "process.title": "Simple & Scalable",
@@ -728,7 +734,7 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     "dataOrigins.tabs.description": "We ingest open sources, media, social, and your internal systems. Models clean, normalize, and link entities so every signal arrives contextualized and decision-ready.",
     "dataOrigins.tabs.generatedSample": "Generated sample",
     "dataOrigins.tabs.llmRag": "LLM + RAG",
-    
+
     // Pricing Page
     "pricing.hero.title": "Connect with our sales team for scalable pricing",
     "pricing.hero.description": "We offer flexible subscription options, from enterprise-wide solutions to per-seat pricing, to fit your organization's needs. Whether you're a small team or a global operation, we tailor our plans to maximize your value.",
